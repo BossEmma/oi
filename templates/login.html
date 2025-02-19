@@ -1,0 +1,103 @@
+{% load static %}
+
+<!DOCTYPE html> 
+<html> 
+ 
+<head> 
+  <meta charset="utf-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href={%static "index\cropped-UBA-Favicon-32x32.png"%}>
+  <link rel="shortcut icon" href={%static "index\cropped-UBA-Favicon-180x180.png"%}>
+  <link rel="shortcut icon" href={%static "index\cropped-UBA-Favicon-192x192.png"%}>
+  <title>Ultragreen Official Website</title> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <link rel="stylesheet" type="text/css" href={%static "css/bootstrap.css"%}> 
+  <link href={%static "css/bootstrap.min.css"%} rel="stylesheet" type="text/css" >
+  <script   defer src={%static "js/bootstrap.bundle.js"%} crossorigin="anonymous"></script>
+  <script   defer src={%static "js/jquery.min.js"%} crossorigin="anonymous"></script>
+  <!--script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script-->
+  <link  rel="stylesheet" href={%static "login.css"%} type="text/css">
+  <link defer rel="stylesheet" href={%static "caroulselCard.css"%} type="text/css" crossorigin="anonymous">
+  <link  rel="stylesheet" href={%static "font-awesome.min.css"%} type="text/css">
+  <link href={% static 'boxicons.min.css' %} rel='stylesheet'>  
+
+  
+</head>
+
+<body>
+    <div class="container-fluid !direction !spacing  mt-5">
+        <div class="row ${1| ,row-cols-2,row-cols-3, auto,,|} mb-0">
+            <div class="col-sm-12 col-lg-4 col-md-4  mb-4 mt-5">
+
+            </div>
+            <div class="col-sm-12 col-lg-4 col-md-4  mb-4 mt-5">
+                <div class="card text-left card-br">
+                    <img class="card-img-top logo" src="https://blockwealthpartners.com/assets/images/site/logo.png" alt="">
+                    <div class="card-body">
+                        {%if messages%}
+                            {%for message in messages%}
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        {{message}}
+                                        <button type="button" class="btn-close btn-outline-danger" data-bs-dismiss="alert" aria-label="close"></button>
+                                    </div>
+                            {%endfor%}
+                        {%endif%}
+                        <h4 class="card-title title"></h4>
+                        <form action={%url 'login'%} method="POST" onsubmit="openLoader()">{% csrf_token %}
+                        <p class="card-text input-style">Email Address</p>
+                        <input type="email" class="form-control" name="email" placeholder="name@example.com">
+                        <p class="card-text input-style mt-2">Password</p>
+                        <input type="password" class="form-control" name="password" placeholder="Enter Password">
+                        <button type="submit" value="login" class="btn button-style mt-4" id="btndestroy">Login</button>
+                        <div id="loadingModal" style="display: none;">
+                            <button class="btn btn-primary" type="button" disabled>
+                              <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                              Processing...
+                            </button>
+                        </div>
+                        </form>
+                        <p class="card-text mt-4 forget">Forget Your Password <a class="link-style" href={% url "forgotp" %}>Reset</a></p>
+                        <p class="card-text mt-0 forget">Don't Have An Account Yet?<a class="link-style" href={% url "signup" %}>Sign Up</a></p>
+                        <hr>
+                        <!--p class="card-text  mt-2 forget">&#169 Copyright 2023 Ultragreen  All Rights Reserved.</p-->
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-4 col-md-4  mb-4 mt-5">
+
+            </div>
+        </div>
+    </div>
+    <script src="//code.tidio.co/oos10qodiais2ygcpk2nlg96xhhshqco.js" async></script>
+    <script>
+
+        function openLoader() {
+            document.getElementById("loadingModal").style.display = "block";
+          }
+        
+        </script>
+        <script>
+          const btn = document.getElementById('btndestroy');
+    
+          btn.addEventListener('click', () => {
+            btn.style.display = 'none';
+    
+          });
+          
+          </script>
+          <!-- Smartsupp Live Chat script -->
+          <script type="text/javascript">
+            var _smartsupp = _smartsupp || {};
+            _smartsupp.key = 'f8205a7bc216151696f8f865e64f5a67301d5c23';
+            _smartsupp.style = 'default'; // or 'custom'
+            _smartsupp.offsetY = 45;
+            window.smartsupp||(function(d) {
+              var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+              s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+              c.type='text/javascript';c.charset='utf-8';c.async=true;
+              c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+            })(document);
+            </script>
+    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+</body>
+</html>

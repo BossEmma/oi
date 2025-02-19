@@ -1,0 +1,231 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0%;
+    font-family: sans-serif;
+    background-color: #151e1c;
+}
+
+#top-nav{
+    position: fixed;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(27, 19, 45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+#top-nav-con{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    color: white;
+}
+
+#nav-col1{
+    width: 109px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#nav-col2{
+    width: 9%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+#main{
+    padding-top: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#side-nav{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    height: 100%;
+    width: 0%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    line-height: 1.5;
+    z-index: 2;
+    
+}
+
+#side-nav-con{
+    background-color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    gap: 15px;
+}
+
+#img-con{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 50%;
+    border-style: solid;
+    background-color: unset;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+}
+
+#user-img{
+    font-size: 70px;
+    margin-top: 10px;
+}
+
+
+
+.side-nav-link{
+    width: 100%;
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-decoration: none;
+}
+
+.side-nav-icon{
+    padding-left: 30px;
+    font-size: 14px;
+}
+
+#main2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 100px;
+}
+
+#main3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+}
+
+form{
+    width: 95%;
+}
+
+#input-box{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 8px;    
+    width: 100%;
+    border-style: none;
+    text-align: center;
+}
+
+#traders{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+.trader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border-radius: 8px;
+    background-color: #073d31;
+    padding-top: 10px;
+    color: white;
+    padding-bottom: 10px; 
+}
+
+.trader-con{
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.trader-info{
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.trader-img{
+    width: 40%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.trader-img img{
+    width: 100%;
+}
+
+.trader-stats{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+
+}
+
+.trader-name{
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.copy-btn{
+    background-color: #08ad89;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 80px;
+}
+
+@media screen and (max-width: 700px) {
+    #name{
+        display: none;
+    }
+
+    #main3{
+        width: 95%;
+    }
+
+    #traders{
+        width: 100%;
+    }
+
+
+
+
+}

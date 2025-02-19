@@ -1,0 +1,76 @@
+#card{
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: left;
+}
+
+#balance{
+    text-align: left;
+    font-size: 35px;
+}
+
+#cryptos{
+    margin-top: 20px;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.crypto{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 8px;
+    background-color: #054634;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.crypto-con{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+}
+
+.crypto-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+    gap: 20px;
+}
+
+.crypto-img{
+    width: 35%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.crypto-img img{
+    width: 100%;
+}
+
+.crypto-bio{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+@media screen and (max-width: 700px) {
+
+    #cryptos{
+        width: 100%;
+    }
+
+    .crypto{
+        width: 100%;
+    }
+}

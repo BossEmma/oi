@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static "css/index.css" %}>
+    <link rel="stylesheet" href={% static "css/about.css" %}>
+    <link rel="stylesheet" href={% static "fontawesome-free-6.4.0-web/css/all.css" %}>
+    <script src={% static "script.js" %}></script>
+    <title>UltraGreen - No.1 Bitcoin Trading Platform</title>
+    <link rel="shortcut icon" href={% static "images/download.png" %} />
+
+</head>
+<body id="body">
+    <nav id="top-nav">
+        <div id="nav-con">
+            <div>
+                <i class="fa-solid nav-icon fa-bars" onclick="OpenNav()" id="nav-ctrl"></i>&nbsp;&nbsp;&nbsp;&nbsp;<text id="logo">UltraGreen</text>
+            </div>
+
+            <div id="nav-links">
+                <a href={% url "home" %} class="nav-links">HOME</a>
+                <a href={% url "faq" %} class="nav-links">FAQ</a>
+                <a href={% url "about" %} class="nav-links">ABOUT US</a>
+                <a href="#" class="nav-links">CONTACT</a>
+                <i id="sun" onclick="LightMode()" class="fa-solid nav-icon fa-sun"></i>
+                <i id="moon" onclick="DarkMode()" class="fa-solid nav-icon fa-moon"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div id="main">
+        <div id="side-nav">
+            <div id="side-nav-top">
+                <img src={% static "images/download.png" %}>
+            </div>
+            <a href={% url "home" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-house"></i>&nbsp;&nbsp;Home</a>
+            <a href={% url "login" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-user"></i>&nbsp;&nbsp;Sign In</a>
+            <a href={% url "signup" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-user-plus"></i>&nbsp;&nbsp;Sign Up</a>
+            <a href="#" class="side-nav-link"><i class="fa-solid side-nav-icon fa-envelope"></i>&nbsp;&nbsp;Contact Us</a>
+            <a href={% url "cookies" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-unlock"></i>&nbsp;&nbsp;Cookie Policy</a>
+            <a href={% url "privacy" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-unlock"></i>&nbsp;&nbsp;Privacy Policy</a>
+            <a href="#" class="side-nav-link"><i class="fa-solid side-nav-icon fa-server"></i>&nbsp;&nbsp;Crypto Mining</a>
+            <a href="#" class="side-nav-link"><i class="fa-solid side-nav-icon fa-copyright"></i>&nbsp;&nbsp;Bitcoin Mining</a>
+            <a href="#" class="side-nav-link"><i class="fa-solid side-nav-icon fa-copyright"></i>&nbsp;&nbsp;Dogecoin Mining</a>
+            <a href={% url "copytrading" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-copy"></i>&nbsp;&nbsp;Copy Trading</a>
+            <a href={% url "cryptotrading" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-copyright"></i>&nbsp;&nbsp;Crypto Trading</a>
+            <a href={% url "terms" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-folder"></i>&nbsp;&nbsp;Terms Of Service</a>
+            <a href={% url "forextrading" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-calendar"></i>&nbsp;&nbsp;Forex Trading</a>
+            <!--a href= class="side-nav-link"><i class="fa-solid side-nav-icon fa-square-poll-vertical"></i>&nbsp;&nbsp;Stocks Trading</a>
+            <a href="#" class="side-nav-link"><i class="fa-solid side-nav-icon fa-circle-dollar-to-slot"></i>&nbsp;&nbsp;Options Trading</a>
+            <a href="#" class="side-nav-link"><i class="fa-solid side-nav-icon fa-user-group"></i>&nbsp;&nbsp;What is Leverage</a>
+            <a href="#" class="side-nav-link"><i class="fa-solid side-nav-icon fa-user-group"></i>&nbsp;&nbsp;Responsible Trading</a>
+            <a href="#" class="side-nav-link"><i class="fa-solid side-nav-icon fa-folder"></i>&nbsp;&nbsp;General Risk Disclosure</a-->
+            <a href={% url "about" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-user-group"></i>&nbsp;&nbsp;About Us</a>
+        </div>
+
+        <div id="main2" onclick="CloseNav()">
+            <section id="about">
+
+                <div id="about-con">
+                    <h1 id="title">Privacy Policy</h1>
+
+                    <p class="about-article">UltraGreen Limited (in incorporation) (“us“, “we” or “Company“) respect the privacy of our users (each, “you” or “User“) and are committed to protect the privacy of Users who access, download, install or register to our mobile application (the “Application“), our website or any other online services we provide (collectively: the “Services“). The Company has papered this Privacy Policy to outline our practices with respect to collecting, using and disclosing your information when you use the Services. We encourage you to read the Privacy Policy carefully and use it to make informed decisions. By using the Services, you agree to the terms of this Privacy Policy and your continued use of the Services constitutes your ongoing agreement to the Privacy Policy. The Privacy Policy is a part of the Terms of Service and is incorporated there in by reference. In this Privacy Policy you will read about, among other things:</p>
+
+                    <p class="about-article">* With whom we share the information and for what purpose</p>
+
+                    <p class="about-article">* For how long we retain the information</p>
+
+                    <p class="about-article">* How we protect your information</p>
+
+                    <p class="about-article">* Advertisements</p>
+
+                    <p class="about-article">* Advertising ID and Advertising Identifier</p>
+
+                    <p class="about-article">* Cookies and Google Analytics</p>
+
+                    <p class="about-article"><b>WITH WHOM WE SHARE THE INFORMATION AND FOR WHAT PURPOSE</b><br>
+
+                        We do not rent, sell, or share your Personal Information with third-parties except as described in this Privacy Policy. We may share Personal Information with the following recipients: (i) our subsidiaries; (ii) affiliated companies; (iii) subcontractors and other third-party service providers; (iv) auditors or advisers of our business processes; and (v) any potential purchasers or investors in the company. In addition to the purposes listed in this Privacy Policy, we may share Personal Information with our recipients for any of the following purposes: (i) storing or processing Personal Information on our behalf (e.g., cloud computing service providers); (ii) processing such information to assist us with our business operations; (iii) performing research, technical diagnostics, personalization and analytics. We may also disclose Personal Information or any information you submitted via the Services if we have a good faith belief that disclosure of such information is helpful or reasonably necessary to: (i) comply with any applicable law, regulation, legal process or governmental request; (ii) enforce our policies, including investigations of potential violations thereof; (iii) investigate, detect, prevent, or take action regarding illegal activities or other wrongdoing, suspected fraud or security issues; (iv) to establish or exercise our rights to defend against legal claims; (v) prevent harm to the rights, property or safety of us, our affiliates, our Users, yourself or any third-party; (vi) for the purpose of collaborating with law enforcement agencies; and (vii) in case we find it necessary in order to enforce intellectual property or other legal rights.</p>
+
+                    <p class="about-article"><b>FOR HOW LONG WE RETAIN THE INFORMATION</b><br>
+
+                        We respect your privacy rights and therefore you may contact us at any time and request: (i) to access, delete, change or update any Personal Information relating to you (for example, if you believe that your Personal Information is incorrect, you may ask to have it corrected or deleted); or (ii) that we will cease any further use of your Personal Information (for example, you may ask that we will stop using or sharing your Personal Information with third-parties) or that we shall remove your Personal Information (subject to any other legal obligation that may require us to keep the information). Please note that unless you instruct us otherwise we retain the information we collect for as long as needed to provide the Services and to comply with our legal obligations, resolve disputes and enforce our agreements. We may rectify, replenish or remove incomplete or inaccurate information, at any time and at our own discretion. If you wish to raise a complaint on how we have handled your Personal Information, please contact us directly at . If you are not satisfied with our response or believe we are collecting or processing your Personal Information not in accordance with the laws, you can complain to the applicable data protection authority.</p>
+
+                    <p class="about-article"><b>HOW WE PROTECT YOUR INFORMATION</b><br>
+
+                        We take great care in implementing and maintaining the security of the Services and your information. We employ industry standard procedures and policies to ensure the safety of your information and prevent unauthorized use of any such information. Although we take reasonable steps to safeguard information, we cannot be responsible for the acts of those who gain unauthorized access or abuse the Services, and we make no warranty, express, implied or otherwise, that we will prevent such access. If you feel that your privacy was treated not in accordance with our policy, or if any person attempted to abuse the Services or acted in an inappropriate manner, please contact us directly at .</p>
+
+                    <p class="about-article"><b>ADVERTISEMENTS</b><br>
+
+                        We may use a third-party advertising technology to serve advertisements when you use the Services. This technology uses your information with regards to your use of the Services to serve advertisements to you (e.g., by placing third-party cookies on your web browser). We may also use our third-parties and share with them Users’ information to assist us in evaluating the success of our advertising campaigns and help us retargeting our Users. You may opt-out of many third-party ad networks, including those operated by members of the Network Advertising Initiative (“NAI”) and the Digital Advertising Alliance (“DAA”). For more information about this practice by NAI and DAA members, and your choices regarding having this information used by these companies, including how to opt-out of third-party ad networks operated by NAI and DAA members, please visit their respective websites: http://optout.networkadvertising.org/#!/ and http://optout.aboutads.info/#!/.</p>
+
+                    <p class="about-article"><b>ADVERTISING ID AND ADVERTISING IDENTIFIER</b><br>
+
+                        The Google Advertising ID is an anonymous identifier, provided by Google Play services. If your device has an Advertising ID, we may collect and use it for advertising and user analytics purposes. We may also use Apple’s Advertising Identifier (IDFA), which is a non-permanent device identifier provided by Apple, and any information obtained through the use of the Advertising Identifier, for the purpose of advertising. By downloading the Application or using the Services you explicitly agree that we may associate your Advertising ID and your Advertising Identifier with your applicable persistent device identifier. This will facilitate our ability to improve your personalized experience. Further, we may use other persistent identifiers for non-advertising purposes. If your device does not have Advertising ID or Advertising Identifier respectively, we will use other identifiers.
+                        </p>
+
+                    <p class="about-article"><b>UPDATE OR AMMENDMENTS TO THE PRIVACY POLICY</b><br>
+
+                        We may revise this Privacy Policy from time to time, in our sole discretion, and the most current version will always be posted on our website or Application (as reflected in the “Last Revised” heading). In the event of a material change to the Privacy Policy, we will notify you through the Services or via email, or you may be notified within the Application. We encourage you to review this Privacy Policy regularly for any changes. Your continued use of the Services, following the notification of such amendments, constitutes your acknowledgement and consent of such amendments to the Privacy Policy and your agreement to be bound by the terms of such amendments.</p>
+                </div>
+
+            </section>
+
+            
+
+
+        </div>
+
+
+    </div>
+
+    <footer>
+        <div id="footer-con">
+            <div id="footer-sum">
+                <h2>UltraGreen</h2>
+                <p class="article">With no commissions and a simple user interface, UltraGreen is the most reliable way to trade for Cryptocurrency.</p>
+
+            </div>
+
+
+            <div id="footer-links">
+                <div class="col">
+                    <h3>Explore</h3>
+                    <a href={% url "faq" %} class="footer-links">FAQ</a>
+                    <a href={% url "about" %} class="footer-links">About</a>
+                    <a href="#" class="footer-links">Contact</a>
+                </div>
+
+                <div class="col">
+                    <h3>Services</h3>
+                    <a href={% url "copytrading" %} class="footer-links">Copy Trading</a>
+                    <a href={% url "forextrading" %} class="footer-links">Forex Trading</a>
+                    <a href={% url "cryptotrading" %} class="footer-links">Crypto Trading</a>
+                </div>
+
+                <div class="col">
+                    <h3>Resource</h3>
+                    <a href={% url "cookies" %} class="footer-links">Cookie Policy</a>
+                    <a href={% url "privacy" %} class="footer-links">Privacy Policy</a>
+                    <a href="terms" class="footer-links">Terms Of Service</a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!-- Smartsupp Live Chat script -->
+    <script type="text/javascript">
+        var _smartsupp = _smartsupp || {};
+        _smartsupp.key = 'f8205a7bc216151696f8f865e64f5a67301d5c23';
+        _smartsupp.style = 'default'; // or 'custom'
+        _smartsupp.offsetY = 45;
+        window.smartsupp||(function(d) {
+          var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+          s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+          c.type='text/javascript';c.charset='utf-8';c.async=true;
+          c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+        })(document);
+        </script>
+    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+</body>
+</html>

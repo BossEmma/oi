@@ -1,0 +1,455 @@
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/traderoom.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-6.4.0-web/css/all.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'fontawesome-free-6.4.0-web/css/all.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js">
+  <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+
+    <script src="{% static 'js/script.js' %}"></script>
+    <title>UltraGreen</title>
+    <style>
+        .dropdown {
+          position: relative;
+          display: inline-block;
+          background-color: #151e1c;
+          border-radius:5px;
+        }
+    
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #096F5A;
+          box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+          z-index: 1;
+        }
+    
+        .dropdown-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+        }
+    
+        .dropdown-content a:hover {
+          background-color: #f1f1f1;
+        }
+    
+        .dropdown button {
+          padding: 12px 16px;
+          background-color: #096F5A;
+          color: white;
+          border: none;
+          cursor: pointer;
+        }
+    
+        .dropdown button:hover {
+          background-color: #096F5A;
+        }
+      </style>
+</head>
+<body>
+    <div id="main">
+        <div class="con" id="side-nav">
+            <a href={% url "dashboard" %} class="side-nav-link"><i class="fa-solid nav-icon fa-house"></i><text>HOME</text></a>
+            <a href="#" class="side-nav-link"><i class="fa-solid nav-icon fa-store"></i><text>TRADE ROOM</text></a>
+            <a href="#" class="side-nav-link"><i class="fa-solid nav-icon fa-hourglass-start"></i><text>OPEN TRADES</text></a>
+            <a href="#" class="side-nav-link"><i class="fa-solid nav-icon fa-hourglass-start"></i><text>CLOSED TRADES</text></a>
+        </div>
+
+        <div class="con"  id="trade">
+            <div id="select-stuff">
+                <div class="dropdown">
+                    <button onclick="toggleDropdown()" id="dropdownMenuButton2" style="border-radius:5px;background-color: #096F5A;">Crypto ({{total_crypto}})</button>
+                    <div class="dropdown-content" id="myDropdown">
+                        <button onclick="toggleSelect(1);updateDropdownText(this)">Stocks ({{total_stock}})</button>
+                    
+                        <button class="dropdown-item" onclick="toggleSelect(2);updateDropdownText(this)">Currencies ({{total_currency}})</button>
+                    
+                        <button class="dropdown-item" onclick="toggleSelect(3);updateDropdownText(this)">Crypto ({{total_crypto}})</button>
+                          
+                    </div>
+                  </div>
+                
+                  <script>
+                    function toggleDropdown() {
+                      var dropdown = document.getElementById("myDropdown");
+                      dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+                    }
+                  </script>
+                
+                <!--select>
+                                        
+                </select-->
+
+                <select class="form-select select-class form-select-sm" data-select-id="1" id="symbolSelect" onchange="changeSymbol()" aria-label="Default select example">
+                    {% for obj in stock %}
+                    <option value="{{obj.symbol}}">{{obj.symbol}}</option>
+                    {% endfor %}
+                </select>
+              <select class="form-select select-class form-select-sm" id="symbolSelect2" data-select-id="2" onchange="changeSymboll()" aria-label="Default select example" style="display:none">
+                    {% for obj in currenct %}
+                    <option value="{{obj.symbol}}">{{obj.symbol}}</option>
+                    {% endfor %}
+                </select>
+              <select class="form-select select-class form-select-sm" id="symbolSelect3" data-select-id="3" onchange="changeSymbolll()" aria-label="Default select example" style="display:none">
+                    {% for obj in crypto %}
+                    <option value="{{obj.symbol}}">{{obj.symbol}}</option>
+                    {% endfor %}
+                </select>
+                <select>
+                    <option>Native</option>
+                    <option>Technical</option>
+                    <option>Simple</option>
+                </select>
+                <script>
+                    function toggleSelect(selectId) {
+                      // Get references to the select elements using class name
+                      var selects = document.getElementsByClassName("select-class");
+                  
+                      // Toggle the visibility of the selects based on data-select-id
+                      for (var i = 0; i < selects.length; i++) {
+                          var currentId = selects[i].getAttribute("data-select-id");
+                          if (currentId === selectId.toString()) {
+                              selects[i].style.display = "block";
+                          } else {
+                              selects[i].style.display = "none";
+                          }
+                        
+                      }
+                    }
+                      function updateDropdownText(clickedOption) {
+                          // Get the dropdown button by its ID
+                          var dropdownButton = document.getElementById("dropdownMenuButton2");
+                      
+                          // Get the value of the clicked option (text inside the <a> tag)
+                          var selectedOptionText = clickedOption.textContent;
+                      
+                          // Update the text of the dropdown button with the selected option text
+                          dropdownButton.innerHTML = selectedOptionText;
+                      }
+
+                  
+                </script>
+            </div>
+
+            <div id="trade-body">
+                <center><h5>NO OPEN TRADES</h5></center>
+            </div>
+
+        </div>
+
+        <div class="con"  id="api-graph">
+            <div id="api-text">
+                <h2>$0.0</h1>
+                <h2>$0.0</h2>
+            </div>
+            <div id="trading-view">
+                <div id="tv_chart_container" style="height:calc(90% - 32px);width:100%"></div>
+                                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                                <script>
+                                    var widget = null;  // Variable to hold the TradingView widget instance
+                            
+                                    // Function to change the symbol in the TradingView widget
+                                    function changeSymbol() {
+                                        var symbolSelect = document.getElementById("symbolSelect");
+                                        var selectedSymbol = symbolSelect.value;
+                            
+                                        // Update the symbol in the existing widget
+                                        widget && widget.setSymbol(selectedSymbol);
+                                    }
+                            
+                                    // Function to initialize the TradingView widget
+                                    function initializeTradingView() {
+                                        widget = new TradingView.widget({
+                                            "container_id": "tv_chart_container",
+                                            "autosize": true,
+                                            "symbol": "AAPL",  // Default symbol
+                                            "interval": "D",
+                                            "timezone": "Etc/UTC",
+                                            "isTransparent":true,
+                                            "theme": "dark",
+                                            "height":1000,
+                                            
+                                            "style": "1",
+                                            "locale": "en",
+                                            "toolbar_bg": "#f1f3f6",
+                                            "enable_publishing": false,
+                                            "allow_symbol_change": true,
+                                            "studies": [
+                                                "MA@tv-basicstudies",
+                                                "RSI@tv-basicstudies"
+                                            ],
+                                            "hideideas": true
+                                        });
+                                    }
+                            
+                                    // Call the initializeTradingView function when the page is loaded
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        initializeTradingView();
+                                    });
+                                </script><script>
+                                    // Function to change the symbol in the TradingView widget
+                                    function changeSymbol() {
+                                        var symbolSelect = document.getElementById("symbolSelect");
+                                        var selectedSymbol = symbolSelect.value;
+                            
+                                        // Get the TradingView widget container
+                                        var tvWidget = new TradingView.widget({
+                                            "container_id": "tv_chart_container",
+                                            "symbol": selectedSymbol,
+                                            "interval": "D",
+                                            "timezone": "Etc/UTC",
+                                            "isTransparent":true,
+                                            "autosize":true,
+                                            "theme": "dark",
+                                            "height":1000,
+                                            "style": "1",
+                                            "locale": "en",
+                                            "toolbar_bg": "#f1f3f6",
+                                            "enable_publishing": false,
+                                            "allow_symbol_change": true,
+                                            "studies": [
+                                                "MA@tv-basicstudies",
+                                                "RSI@tv-basicstudies"
+                                            ],
+                                            "hideideas": true
+                                        });
+                            
+                                        // Reload the TradingView widget with the new symbol
+                                        tvWidget.onChartReady(function () {
+                                            tvWidget.chart().setSymbol(selectedSymbol);
+                                        });
+                                    }
+                                </script>
+                                <script>
+                                    var widget = null;  // Variable to hold the TradingView widget instance
+                            
+                                    // Function to change the symbol in the TradingView widget
+                                    function changeSymboll() {
+                                        var symbolSelect = document.getElementById("symbolSelect2");
+                                        var selectedSymbol = symbolSelect.value;
+                            
+                                        // Update the symbol in the existing widget
+                                        widget && widget.setSymbol(selectedSymbol);
+                                    }
+                            
+                                    // Function to initialize the TradingView widget
+                                    function initializeTradingView() {
+                                        widget = new TradingView.widget({
+                                            "container_id": "tv_chart_container",
+                                            "autosize": true,
+                                            "symbol": "AAPL",  // Default symbol
+                                            "interval": "D",
+                                            "timezone": "Etc/UTC",
+                                            "isTransparent":true,
+                                            "theme": "dark",
+                                            "height":1000,
+                                            
+                                            "style": "1",
+                                            "locale": "en",
+                                            "toolbar_bg": "#f1f3f6",
+                                            "enable_publishing": false,
+                                            "allow_symbol_change": true,
+                                            "studies": [
+                                                "MA@tv-basicstudies",
+                                                "RSI@tv-basicstudies"
+                                            ],
+                                            "hideideas": true
+                                        });
+                                    }
+                            
+                                    // Call the initializeTradingView function when the page is loaded
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        initializeTradingView();
+                                    });
+                                </script><script>
+                                    // Function to change the symbol in the TradingView widget
+                                    function changeSymboll() {
+                                        var symbolSelect = document.getElementById("symbolSelect2");
+                                        var selectedSymbol = symbolSelect.value;
+                            
+                                        // Get the TradingView widget container
+                                        var tvWidget = new TradingView.widget({
+                                            "container_id": "tv_chart_container",
+                                            "symbol": selectedSymbol,
+                                            "interval": "D",
+                                            "timezone": "Etc/UTC",
+                                            "isTransparent":true,
+                                            "autosize":true,
+                                            "theme": "dark",
+                                            "height":1000,
+                                            "style": "1",
+                                            "locale": "en",
+                                            "toolbar_bg": "#f1f3f6",
+                                            "enable_publishing": false,
+                                            "allow_symbol_change": true,
+                                            "studies": [
+                                                "MA@tv-basicstudies",
+                                                "RSI@tv-basicstudies"
+                                            ],
+                                            "hideideas": true
+                                        });
+                            
+                                        // Reload the TradingView widget with the new symbol
+                                        tvWidget.onChartReady(function () {
+                                            tvWidget.chart().setSymbol(selectedSymbol);
+                                        });
+                                    }
+                                </script>
+                                <script>
+                                    var widget = null;  // Variable to hold the TradingView widget instance
+                            
+                                    // Function to change the symbol in the TradingView widget
+                                    function changeSymbolll() {
+                                        var symbolSelect = document.getElementById("symbolSelect3");
+                                        var selectedSymbol = symbolSelect.value;
+                            
+                                        // Update the symbol in the existing widget
+                                        widget && widget.setSymbol(selectedSymbol);
+                                    }
+                            
+                                    // Function to initialize the TradingView widget
+                                    function initializeTradingView() {
+                                        widget = new TradingView.widget({
+                                            "container_id": "tv_chart_container",
+                                            "autosize": true,
+                                            "symbol": "AAPL",  // Default symbol
+                                            "interval": "D",
+                                            "timezone": "Etc/UTC",
+                                            "theme": "dark",
+                                            "isTransparent":true,
+                                            "height":1000,
+                                            
+                                            "style": "1",
+                                            "locale": "en",
+                                            "toolbar_bg": "#f1f3f6",
+                                            "enable_publishing": false,
+                                            "allow_symbol_change": true,
+                                            "studies": [
+                                                "MA@tv-basicstudies",
+                                                "RSI@tv-basicstudies"
+                                            ],
+                                            "hideideas": true
+                                        });
+                                    }
+                            
+                                    // Call the initializeTradingView function when the page is loaded
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        initializeTradingView();
+                                    });
+                                </script><script>
+                                    // Function to change the symbol in the TradingView widget
+                                    function changeSymbolll() {
+                                        var symbolSelect = document.getElementById("symbolSelect3");
+                                        var selectedSymbol = symbolSelect.value;
+                            
+                                        // Get the TradingView widget container
+                                        var tvWidget = new TradingView.widget({
+                                            "container_id": "tv_chart_container",
+                                            "symbol": selectedSymbol,
+                                            "interval": "D",
+                                            "timezone": "Etc/UTC",
+                                            "isTransparent":true,
+                                            "autosize":true,
+                                            "theme": "dark",
+                                            "height":1000,
+                                            "style": "1",
+                                            "locale": "en",
+                                            "toolbar_bg": "#f1f3f6",
+                                            "enable_publishing": false,
+                                            "allow_symbol_change": true,
+                                            "studies": [
+                                                "MA@tv-basicstudies",
+                                                "RSI@tv-basicstudies"
+                                            ],
+                                            "hideideas": true
+                                        });
+                            
+                                        // Reload the TradingView widget with the new symbol
+                                        tvWidget.onChartReady(function () {
+                                            tvWidget.chart().setSymbol(selectedSymbol);
+                                        });
+                                    }
+                                </script>
+
+            </div>
+
+        </div>
+
+        <div class="con"  id="trade-stuff">
+            <form>
+                <div id="form-con">
+                    <div class="input-con">
+                        <label style="color:white">Amount</label>
+                        <input type="text" placeholder="0.00" class="input-box"/>
+                    </div>
+
+                    <div class="input-con">
+                        <label style="color:white">Time (Minutes)</label>
+                        <input type="number" placeholder="10" class="input-box"/>
+                    </div>
+
+                    <div class="input-con">
+                        <label style="color:white">Leverage (50 MAX)</label>
+                        <input type="number" placeholder="0" class="input-box"/>
+                    </div>
+
+                </div>
+
+                <div id="sub-btns">
+                    {% if balance.trading_balance <= 0 %}
+                    <a href="#" id="up" onclick="displayText()" class="sub-btn">UP</a>
+
+                    <a href="#" id="down" onclick="displayText()" class="sub-btn">DOWN</a>   
+                    {% else %}
+                    <a href="#" id="up" class="sub-btn">UP</a>
+
+                    <a href="#" id="down"  class="sub-btn">DOWN</a>  
+                    {% endif %}                 
+                </div>
+
+                <script>
+                    function displayText() {
+                        // Specify the text you want to display
+                        var message = "Please Fund Account To Proceed.";
+                
+                        // Display the text in an alert dialog
+                        alert(message);
+                    }
+                </script>
+                
+            </form>
+
+        </div>        
+    </div>
+
+    <div class="con"  id="bottom-nav">
+        <div id="bottom-nav-con">
+            <a href={% url "dashboard" %} class="bottom-nav-link"><i class="fa-solid nav-icon fa-house"></i><text>HOME</text></a>
+            <a href="#" class="bottom-nav-link"><i class="fa-solid nav-icon fa-store"></i><text>TRADE ROOM</text></a>
+            <a href="#" class="bottom-nav-link"><i class="fa-solid nav-icon fa-hourglass-start"></i><text>OPEN TRADES</text></a>
+            <a href="#" class="bottom-nav-link"><i class="fa-solid nav-icon fa-hourglass-start"></i><text>CLOSED TRADES</text></a>
+        </div>
+    </div>   
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = 'f8205a7bc216151696f8f865e64f5a67301d5c23';
+    _smartsupp.style = 'default'; // or 'custom'
+    _smartsupp.offsetY = 45;
+    window.smartsupp||(function(d) {
+      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+      c.type='text/javascript';c.charset='utf-8';c.async=true;
+      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+    </script>
+    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+</body>
+</html>

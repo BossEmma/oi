@@ -1,0 +1,75 @@
+#trader-info{
+    background-color: #054335;
+    width: 100%;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#trader-info-con{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+}
+
+#trader-bio{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#trader_name{
+    font-size: 30px;
+    color: white;
+}
+
+#trader-img{
+    overflow: hidden;
+    border-radius: 50%;
+    width: 60%;
+
+}
+
+#trader-img img{
+    width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 70%;
+   
+
+}
+
+td {
+    padding-left: 8px;
+    text-align: left;
+    font-size: 13px;
+    height: 40px;
+
+}
+
+tr{
+    background-color: #058166;
+    color: white;
+    border-bottom: solid 1px;
+    
+}
+
+@media screen and (max-width: 700px) {
+    #trader-info-con{
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    table{
+        width: 100%;
+    }
+}

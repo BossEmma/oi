@@ -1,0 +1,62 @@
+
+#main3{
+    overflow-x: hidden;
+}
+
+#panel{
+    gap: 50px;
+}
+
+.card{
+    border-radius: 10px;
+    background-color: #0e6d54;
+    color: white;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+#bal-text{
+    font-size: 14px;
+}
+
+.with-btn{
+    border-radius: 5px;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: red;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    margin-top: 40px;
+}
+
+#link{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 90%;
+    background-color: #0b8766;
+    text-align: center;
+}
+
+#bal-btn{
+    background-color: rgb(73, 73, 254);
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 5px;
+    width: 100%;
+}
+
+@media screen and (max-width: 700px) {
+    #trade{
+        margin-top: 50px;
+    }
+}

@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-6.4.0-web/css/all.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>UltraGreen</title>
+</head>
+<body>
+    {% include "top_nav.html" %}
+
+    <div id="main">
+        {% include "sidenav.html" %}
+
+        <div id="main2" onclick="CloseNav()">
+            <div id="main3">
+                <div id="panel">
+                    <div id="card">
+                        <div id="bal">
+                            <text id="balance">${{bal.trading_balance}}</text>
+                            <text id="bal-text">TRADING BALANCE</text>
+                        </div>
+
+                        <div id="signal">
+                            <div id="line"></div>
+                            <text id="signal-text">SIGNAL STRENGTH</text>
+                        </div>
+                    </div>
+
+                    <div id="btns">
+                        <a href={% url "fund" %} class="panel-btn">ADD FUNDS</a>
+                        <a href={% url 'copytrade' %} class="panel-btn">MY TRADERS ({{total}})</a>
+                    </div>
+
+                    <div class="trading-view" id="view-1">
+                        <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22BTCUSD%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A%22100%25%22%2C%22dateRange%22%3A%221d%22%2C%22colorTheme%22%3A%22dark%22%2C%22isTransparent%22%3Afalse%2C%22autosize%22%3Atrue%2C%22largeChartUrl%22%3A%22%22%2C%22utm_source%22%3A%22metacrest.net%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22mini-symbol-overview%22%2C%22page-uri%22%3A%22metacrest.net%2Fuser%2Findex.html%22%7D" title="mini symbol-overview TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 100%; width: 100%;"></iframe>
+                    </div>
+
+                    <div class="trading-view" id="view-2">
+                        <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22BTCUSD%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A%22100%25%22%2C%22dateRange%22%3A%221d%22%2C%22colorTheme%22%3A%22dark%22%2C%22isTransparent%22%3Afalse%2C%22autosize%22%3Atrue%2C%22largeChartUrl%22%3A%22%22%2C%22utm_source%22%3A%22metacrest.net%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22mini-symbol-overview%22%2C%22page-uri%22%3A%22metacrest.net%2Fuser%2Findex.html%22%7D" title="mini symbol-overview TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 100%; width: 100%;"></iframe>
+                    </div>
+
+
+                </div>
+
+                <div id="trade">
+                    <div class="trade" id="trade-head">
+                        <div onclick="closetrade()" class="trade-header" id="closed-trade-head"><i class="fa-solid trade-icon fa-hourglass-start"></i>Closed</div>
+                        <div onclick="opentrade()" class="trade-header" id="open-trade-head"><i class="fa-solid trade-icon fa-hourglass-start"></i>Open</div>
+                    </div>
+
+                    <div id="trade-body">
+                        <div class="trade-con" id="closed-trade-body">
+                            <!--<text>NO CLOSED TRADES</text>-->
+                            {% for obj in trade %}
+                            {% if obj.trade_type == "CLOSED TRADE" %}
+                            <div class="trade-label">
+                                <div class="trade-label-con">
+                                    <div class="trade-label-con1">
+                                        <div class="history-date">
+                                            <text class="month">{{obj.date_created|date:"M"|upper}}</text>
+                                            <text class="date">{{obj.date_created|date:"d"}}</text>
+                                        </div>
+                                        <div class="img-con">
+                                            <img src="https://metacrest.net/assets/images/icons/pair-icon-audcad.img.svg"/>
+                                        </div>    
+                                        
+                                        <div class="trade-bio">
+                                            <text class="trade-name">{{obj.up}}</text>
+                                            <text class="trade-abb">{{obj.pair}}</text><br>
+                                            <text class="trade-abb">{{obj.name}}</text>
+                                        </div>
+                                    </div>
+
+                                    <div class="trade-label-con2">
+                                        <text class="trade-rate-num">${{obj.ammount}}</text>
+                                    </div>
+
+                                </div>
+                                
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                            {% if cl <= 0 %}
+                            <text>NO CLOSED TRADES</text>
+                            {% endif %}
+                            <!--div class="trade-label">
+                                <div class="trade-label-con">
+                                    <div class="trade-label-con1">
+                                        <div class="history-date">
+                                            <text class="month">DEC</text>
+                                            <text class="date">31</text>
+                                        </div>
+                                        <div class="img-con">
+                                            <img src="{% static 'images/trader.png' %}"/>
+                                        </div>    
+                                        
+                                        <div class="trade-bio">
+                                            <text class="trade-name">Boss Nigga</text>
+                                            <text class="trade-abb">Rate</text>
+                                        </div>
+                                    </div>
+
+                                    <div class="trade-label-con2">
+                                        <text class="trade-rate-num">2627376383778.76 SOL</text>
+                                    </div>
+
+                                </div>
+                                
+                            </div>
+
+                            <div class="trade-label">
+                                <div class="trade-label-con">
+                                    <div class="trade-label-con1">
+                                        <div class="history-date">
+                                            <text class="month">DEC</text>
+                                            <text class="date">31</text>
+                                        </div>
+                                        <div class="img-con">
+                                            <img src="{% static 'images/trader.png' %}"/>
+                                        </div>    
+                                        
+                                        <div class="trade-bio">
+                                            <text class="trade-name">Boss Nigga</text>
+                                            <text class="trade-abb">Rate</text>
+                                        </div>
+                                    </div>
+
+                                    <div class="trade-label-con2">
+                                        <text class="trade-rate-num">2627376383778.76 SOL</text>
+                                    </div>
+
+                                </div>
+                                
+                            </div-->
+                        </div>
+                        
+                        <div class="trade-con" id="open-trade-body">
+                            {% for obj in trade %}
+                            {% if obj.trade_type == "OPEN TRADE" %}
+                            <div class="trade-label" style="margin-top:5px">
+                                <div class="trade-label-con">
+                                    <div class="trade-label-con1">
+                                        <div class="history-date">
+                                            <text class="month">{{obj.date_created|date:"M"|upper}}</text>
+                                            <text class="date">{{obj.date_created|date:"d"}}</text>
+                                        </div>
+                                        <div class="img-con">
+                                            <img src="https://metacrest.net/assets/images/icons/pair-icon-audcad.img.svg"/>
+                                        </div>    
+                                        
+                                        <div class="trade-bio">
+                                            <text class="trade-name">{{obj.up}}</text>
+                                            <text class="trade-abb">{{obj.pair}}</text><br>
+                                            <text class="trade-abb">{{obj.name}}</text>
+                                        </div>
+                                    </div>
+
+                                    <div class="trade-label-con2">
+                                        <text class="trade-rate-num">${{obj.ammount}}</text>
+                                    </div>
+
+                                </div>
+                                
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                            {% if op <= 0 %}
+                            <text>NO OPEN TRADES</text>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+
+    {% include "bottom_nav.html" %}
+    <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = 'f8205a7bc216151696f8f865e64f5a67301d5c23';
+    _smartsupp.offsetY = 45;
+    window.smartsupp||(function(d) {
+      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+      c.type='text/javascript';c.charset='utf-8';c.async=true;
+      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+    </script>
+</body>
+</html>

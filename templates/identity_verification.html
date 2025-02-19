@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-6.4.0-web/css/all.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+    <title>UltraGreen</title>
+</head>
+<body>
+    {% include "top_nav.html" %}
+
+    <div id="main">
+        {% include "sidenav.html" %}
+
+        <div id="main2" onclick="CloseNav()">
+            <div id="main3">
+                <div id="profile">
+                    <div id="profile-con">
+                        <form id="identity-form" style="display:flex;">
+                            <h2>Verify Your Identity</h2>
+
+                            <h5>Please verify your identity by uploading a valid government issued identification card. You may experience difficulties when uploading from an ios device. Make sure your browser has camera access in your ios settings.</h5>
+                            <div id="password-form-con">
+                                <div class="input">
+                                    <label class="input-label">FRONT</label>
+                                    <input style="padding-left: 2px;" class="input-box" type="file"/>
+                                </div>
+
+                                <div class="input">
+                                    <label class="input-label">BACK</label>
+                                    <input style="padding-left: 2px;" class="input-box" type="file"/>
+                                </div>
+
+                                <input type="submit" value="Submit" id="submit">
+                            </div>
+                        </form>
+
+                        
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

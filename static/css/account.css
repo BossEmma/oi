@@ -1,0 +1,109 @@
+#main3{
+    overflow-x: hidden;
+}
+
+#options{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+#profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 49%;
+    
+}
+
+#cam-con{
+    border-radius: 50%;
+    background-color: #0b5747;
+    color: white;
+    width: 50%;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.cam{
+    font-size: 80px;
+}
+
+#user-name{
+    color: white;
+}
+
+.con{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 49%;
+    gap: 20px;
+    padding-top: 30px;
+    
+}
+
+.opt{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #0b5747;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+
+.opt-con{
+    width: 95%;    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.opt-text{
+    font-size: 18px;
+}
+
+.icon-con{
+    border-radius: 10px;
+    background-color: aqua;
+    color: white;
+    padding-top: 20px;
+    width: 70px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.icon{
+    font-size: 25px;
+}
+
+@media screen and (max-width: 700px) {
+    #options{
+        flex-direction: column;
+    }
+
+    .con{
+        width: 100%;
+    }
+
+    #profile{
+        width: 100%;
+    }
+
+    #cam-con{
+        padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}

@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mining.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-6.4.0-web/css/all.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="{% static 'js/script.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <title>UltraGreen</title>
+</head>
+<body>
+    {% include "top_nav.html" %}
+
+    <div id="main">
+        {% include "sidenav.html" %}
+
+        <div id="main2" onclick="CloseNav()">
+            <div id="main3">
+                <div id="panel">
+                    <div id="card">
+                        <div id="bal">
+                            <text id="balance">${{bal.trading_balance}}</text>
+                        </div>
+                    </div>
+
+                    <div id="btns">
+                        <a href={% url "fund" %} class="panel-btn">BUY CONTRACTS</a>
+                        <a href={% url "contracts" %} class="panel-btn">MY CONTRACTS</a>
+                    </div>
+
+                    <div class="trading-view" id="view-1">
+                        <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22BTCUSD%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A%22100%25%22%2C%22dateRange%22%3A%221d%22%2C%22colorTheme%22%3A%22dark%22%2C%22isTransparent%22%3Afalse%2C%22autosize%22%3Atrue%2C%22largeChartUrl%22%3A%22%22%2C%22utm_source%22%3A%22metacrest.net%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22mini-symbol-overview%22%2C%22page-uri%22%3A%22metacrest.net%2Fuser%2Findex.html%22%7D" title="mini symbol-overview TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 100%; width: 100%;"></iframe>
+                    </div>
+
+                    <div class="trading-view" id="view-2">
+                        <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22BTCUSD%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A%22100%25%22%2C%22dateRange%22%3A%221d%22%2C%22colorTheme%22%3A%22dark%22%2C%22isTransparent%22%3Afalse%2C%22autosize%22%3Atrue%2C%22largeChartUrl%22%3A%22%22%2C%22utm_source%22%3A%22metacrest.net%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22mini-symbol-overview%22%2C%22page-uri%22%3A%22metacrest.net%2Fuser%2Findex.html%22%7D" title="mini symbol-overview TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 100%; width: 100%;"></iframe>
+                    </div>
+
+
+                </div>
+
+                <div id="cryptos">
+                    {% for obj in coins %}
+                    <div class="crypto">
+                        <div class="crypto-con">
+                            <div class="crypto-info">
+                                <div class="crypto-img">
+                                    <img src="{{obj.image.url}}"/>
+                                </div>
+
+                                <div class="crypto-bio">
+                                    <text class="crypto-name">{{obj.name}}</text>
+                                    <text class="crypto-abb">{{obj.value}}</text>
+                                </div>
+                            </div>
+
+                            <div class="crypto-stat">
+                                <text class="num">{{obj.mine_rate}} GH/s</text>
+                            </div>
+                        </div>
+                    </div>      
+                    {% endfor %}
+                    <!--div class="crypto">
+                        <div class="crypto-con">
+                            <div class="crypto-info">
+                                <div class="crypto-img">
+                                    <img src="{% static 'images/trader.png' %}"/>
+                                </div>
+
+                                <div class="crypto-bio">
+                                    <text class="crypto-name">Boss Nigga</text>
+                                    <text class="crypto-abb">Rate</text>
+                                </div>
+                            </div>
+
+                            <div class="crypto-stat">
+                                <text class="num">100.5</text>
+                            </div>
+                        </div>
+                    </div>  
+
+                    <div class="crypto">
+                        <div class="crypto-con">
+                            <div class="crypto-info">
+                                <div class="crypto-img">
+                                    <img src="{% static 'images/trader.png' %}"/>
+                                </div>
+
+                                <div class="crypto-bio">
+                                    <text class="crypto-name">Boss Nigga</text>
+                                    <text class="crypto-abb">Rate</text>
+                                </div>
+                            </div>
+
+                            <div class="crypto-stat">
+                                <text class="num">100.5</text>
+                            </div>
+                        </div>
+                    </div-->  
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+    {% include "bottom_nav.html" %}
+    <!-- Smartsupp Live Chat script -->
+    <script type="text/javascript">
+        var _smartsupp = _smartsupp || {};
+        _smartsupp.key = 'f8205a7bc216151696f8f865e64f5a67301d5c23';
+        _smartsupp.style = 'default'; // or 'custom'
+        _smartsupp.offsetY = 45;
+        window.smartsupp||(function(d) {
+          var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+          s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+          c.type='text/javascript';c.charset='utf-8';c.async=true;
+          c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+        })(document);
+        </script>
+    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+</body>
+</html>

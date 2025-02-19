@@ -1,0 +1,112 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0%;
+    font-family: sans-serif;
+    background-color: #151e1c;
+    color: white;
+}
+
+#main{
+    padding-top: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#main2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 100px;
+}
+
+#main3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+}
+
+select{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: white;
+    color: black;
+}
+
+.form{
+    width: 40%;
+    background-color: #0d4338;
+    border-radius: 5px;
+    margin-top: 50px;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.form-con{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 90%;
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+.input-box{
+    padding-top: 10px;
+    width: 100%;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    border-style: none;
+}
+
+label{
+    font-size: 12px;
+}
+
+.submit{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 8px;
+    background-color: #0cc19d;
+    color: white;
+    border-style: none;
+    margin-top: 40px;
+}
+
+#crypto-form{
+    display: none;
+}
+
+#paypal-form{
+    display: none;
+}
+
+#cashapp-form{
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    #main3{
+        width: 95%;
+    }
+
+    .form{
+        width: 100%;
+    }
+}

@@ -1,0 +1,33 @@
+#main2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 80px;
+}
+
+#about{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    margin-bottom: 50px;
+    color: black;
+}
+
+#title{
+    font-size: 35px;
+}
+
+.about-article{
+    color: rgb(58, 58, 58);
+    line-height: 1.5;
+}
+
+#about-con{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

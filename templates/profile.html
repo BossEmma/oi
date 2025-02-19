@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-6.4.0-web/css/all.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <title>UltraGreen</title>
+</head>
+<body>
+    {% include "top_nav.html" %}
+
+    <div id="main">
+        {% include "sidenav.html" %}
+
+        <div id="main2" onclick="CloseNav()">
+            <div id="main3">
+                <div id="profile" >
+                    <div id="profile-con">
+                        <div id="img-con">
+                            {% if pic is not None %}
+                            <img src="{{pic.image.url}}" class="fa-solid cam fa-camera" style="width:100px;height:100px;"></img>
+                            {% else %}
+                            <i  class="fa-solid cam fa-camera"></i>
+                            {% endif %}
+                        </div>
+                        <h1 id="user-name">{{request.user}}</h1>
+
+
+                        <label class="label dark">
+                            <text class="title">Name</text>
+                            <text class="title">{{info.firstname}}</text>
+                        </label>
+
+                        <label class="label light">
+                            <text class="title">Contact</text>
+                            <text class="title">{{info.contact}}</text>
+                        </label>
+
+                        <!--label class="label dark">
+                            <text class="title">NOTIFICATION</text>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                              </label>
+                        </label-->
+
+                        <label class="label light">
+                            <text class="title">Currency</text>
+                            <text class="title">{{info.currency}}</text>
+                        </label>
+
+                        <!--label class="label dark" onclick="togglepasswordform()">
+                            <text class="title">RESEST PASSWORD</text>
+                            <text class="title"><i class="fa-solid fa-chevron-down"></i></text>
+                        </label-->
+
+                        <!--form id="password-form" action={% url 'settings' %} method=POST  onsubmit="openLoader()">{%csrf_token%}
+                            <div id="password-form-con">
+                                
+
+                                <div class="input">
+                                    <label class="input-label">New password</label>
+                                    {{form.new_password1}}
+                                    {{form.new_password1.errors}}
+                                </div>
+
+                                <div class="input">
+                                    <label class="input-label">Confirm new password</label>
+                                    {{form.new_password2}}
+                                    {{form.new_password2.errors}}
+                                </div>
+
+                                <input type="submit" value="Submit" id="submit">
+                            </div>
+                        </form-->
+
+                        <label class="label light">
+                            <text class="title">Email</text>
+                            <text class="title">{{request.user.email}}</text>
+                        </label>
+
+                        <!--label class="label dark" onclick="toggleemailform()">
+                            <text class="title">UPDATE EMAIL</text>
+                            <text class="title"><i class="fa-solid fa-chevron-down"></i></text>
+                        </label-->
+
+                        <!--form id="email-form">
+                            <div id="password-form-con">
+                                <div class="input">
+                                    <label class="input-label">New Email Address</label>
+                                    <input class="input-box" type="text" placeholder="New Email"/>
+                                </div>
+
+                                <input type="submit" value="Submit" id="submit">
+                            </div>
+                        </form-->
+
+                        <label class="label light">
+                            <text class="title">Nationality</text>
+                            <text class="title">{{info.nationality}}</text>
+                        </label>
+
+                        <br>
+
+                        <!--label class="label dark" onclick="toggleidentityform()">
+                            <text class="title">IDENTITY VERIFICATION</text>
+                            <text class="status">completed</text>
+                            <text class="title"><i class="fa-solid fa-chevron-down"></i></text>
+                        </label-->
+
+                        <form id="identity-form">
+                            <div id="password-form-con">
+                                <div class="input">
+                                    <label class="input-label">FRONT</label>
+                                    <input class="input-box" type="file" placeholder="New Email"/>
+                                </div>
+
+                                <div class="input">
+                                    <label class="input-label">BACK</label>
+                                    <input class="input-box" type="file" placeholder="old password"/>
+                                </div>
+
+                                <input type="submit" value="Submit" id="submit">
+                            </div>
+                        </form>
+
+                        
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Smartsupp Live Chat script -->
+    <script type="text/javascript">
+        var _smartsupp = _smartsupp || {};
+        _smartsupp.key = 'f8205a7bc216151696f8f865e64f5a67301d5c23';
+        _smartsupp.style = 'default'; // or 'custom'
+        _smartsupp.offsetY = 45;
+        window.smartsupp||(function(d) {
+          var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+          s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+          c.type='text/javascript';c.charset='utf-8';c.async=true;
+          c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+        })(document);
+        </script>
+    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+</body>
+</html>

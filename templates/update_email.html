@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-6.4.0-web/css/all.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+    <title>UltraGreen</title>
+</head>
+<body>
+    {% include "top_nav.html" %}
+
+    <div id="main">
+        {% include "sidenav.html" %}
+
+        <div id="main2" onclick="CloseNav()">
+            <div id="main3">
+                <div id="profile">
+                    <div id="profile-con">
+                        <form id="email-form" style="display:flex;" action={%url 'email' %} method="POST">{% csrf_token %}
+                            <div id="password-form-con">
+                                <h1>UPDATE EMAIL</h1>
+
+                                <h4>{{request.user.email}}</h4>
+                                <div class="input">
+                                    <label class="input-label">New Email Address</label>
+                                    <input class="input-box" type="email" name="email" placeholder="New Email"/>
+                                </div>
+
+                                <button type="submit"  id="submit">Update</buttom>
+                            </div>
+                        </form>
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

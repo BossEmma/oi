@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/traders.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'fontawesome-free-6.4.0-web/css/all.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <title>UltraGreen</title>
+</head>
+<body>
+    {% include "top_nav.html" %}
+
+    <div id="main">
+        {% include "sidenav.html" %}
+
+        <div id="main2" onclick="CloseNav()">
+            <div id="main3">
+
+                <form>
+                    <input id="input-box" type="text" placeholder="search"/>
+                </form>
+
+                <div id="traders">
+                    <!--div class="trader">
+                        <div class="trader-con">
+                            <div class="trader-info">
+                                <div class="trader-img">
+                                    <img src="{% static 'images/trader.png' %}"/>
+                                </div>
+
+                                <div class="trader-stats">
+                                    <text class="trader-name">Boss Nigga</text>
+                                    <text class="trader-rate">88% Win Rate</text>
+                                    <text class="trader-rate">20% Profit Share</text>
+                                </div>
+                            </div>
+
+                            <a href="#" class="copy-btn">Copy</a>
+                        </div>
+                    </div>
+
+                    <div class="trader">
+                        <div class="trader-con">
+                            <div class="trader-info">
+                                <div class="trader-img">
+                                    <img src="{% static 'images/trader.png' %}"/>
+                                </div>
+
+                                <div class="trader-stats">
+                                    <text class="trader-name">Boss Nigga</text>
+                                    <text class="trader-rate">88% Win Rate</text>
+                                    <text class="trader-rate">20% Profit Share</text>
+                                </div>
+                            </div>
+
+                            <a href="#" class="copy-btn">Copy</a>
+                        </div>
+                    </div-->
+                    {% for obj in trade %}
+                    <div class="trader">
+                        <div class="trader-con">
+                            <a href={% url "traderInfo" obj.pk %}  style="text-decoration:none;color:white" >
+
+                            <div class="trader-info">
+                                <div class="trader-img">
+                                    <img src="{{obj.profile_image.url}}"/>
+                                </div>
+
+                                <div class="trader-stats">
+                                    <text class="trader-name">{{obj.name}}</text>
+                                    <text class="trader-rate">{{obj.win_rate}}% Win Rate</text>
+                                    <text class="trader-rate">{{obj.profit_share}}% Profit Share</text>
+                                </div>
+                            </div>
+                            </a>
+                            {% if obj.name in list %}
+                                <a class="like-button copy-btn" id="like-{{obj.pk}}" style="display:none">Copy</a>
+                                <a class="like-button copy-btn" id="close-{{obj.pk}}">Cancel</a>
+                                          {% else %}
+                                          <a class="like-button copy-btn" id="like-{{obj.pk}}">Copy</a>
+                                          <a class="like-button copy-btn" id="close-{{obj.pk}}" style="display:none">Cancel</a>
+
+                                          
+                                          {% endif %}
+
+                        </div>
+                    </div>
+                    <script>
+                        // Assuming you're using jQuery for simplicity
+                        $(document).ready(function() {
+                          $('#like-{{obj.pk}}').click(function() {
+                            var postId = $(this).data('post-id');
+                            var button =$(this);
+                            $.ajax({
+                              type: 'POST',
+                              url: {% url "like_post"  %},
+                              data: {'name':'{{obj.pk}}'},
+                              success: function(response) {
+                                button.hide();
+                                $('#cancel{{obj.pk}}').show();
+                                $('#close-{{obj.pk}}').show();
+                              }
+                            });
+                          });
+                        });
+                      </script>
+                      <script>
+                        // Assuming you're using jQuery for simplicity
+                        $(document).ready(function() {
+                          $('#close-{{obj.pk}}').click(function() {
+                            var postId = $(this).data('post-id');
+                            var button =$(this);
+                            $.ajax({
+                              type: 'POST',
+                              url: {% url "like_post"  %},
+                              data: {'name':'{{obj.pk}}'},
+                              success: function(response) {
+                                button.hide();
+                                $('#load{{obj.pk}}').hide();
+                                $('#like-{{obj.pk}}').show();
+                                $('#cancel{{obj.pk}}').hide();
+                              }
+                            });
+                          });
+                        });
+                      </script>
+                    {% endfor %}
+                </div>
+                
+
+            </div>
+        </div>
+
+    </div>
+    <!-- Smartsupp Live Chat script -->
+    <script type="text/javascript">
+        var _smartsupp = _smartsupp || {};
+        _smartsupp.key = 'f8205a7bc216151696f8f865e64f5a67301d5c23';
+        _smartsupp.style = 'default'; // or 'custom'
+        _smartsupp.offsetY = 45;
+        window.smartsupp||(function(d) {
+          var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+          s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+          c.type='text/javascript';c.charset='utf-8';c.async=true;
+          c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+        })(document);
+        </script>
+<noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+</body>
+</html>

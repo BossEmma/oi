@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mining_plan.css' %}">
+    <link rel="stylesheet" href="{% static 'css/upgrade.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-6.4.0-web/css/all.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <title>UltraGreen</title>
+</head>
+<body>
+    {% include "top_nav.html" %}
+
+    <div id="main">
+        {% include "sidenav.html" %}
+
+        <div id="main2" onclick="CloseNav()">
+            <div id="main3">
+                <div style="width:100%" id="plans">
+                    <div class="card">
+                        <h4>1 Week Contract</h4>
+
+                        <text class="price">$500</text>
+
+                        <h5>Min Deposit $500</h5>
+
+                        <h5>Referral Bonus</h5>
+
+                        <h5>Full IT Support</h5>
+
+
+                        <a href={% url "deposit" %} class="purchase-btn">PURCHASE PLAN</a>
+                    </div>
+
+                    <div class="card">
+                        <h4>2 Weeks Contract</h4>
+
+                        <text class="price">$1000</text>
+
+                        <h5>Min Deposit $1000</h5>
+
+                        <h5>Referral Bonus</h5>
+
+                        <h5>Full IT Support</h5>
+
+
+                        <a href={% url "deposit" %} class="purchase-btn">PURCHASE PLAN</a>
+                    </div>
+
+                    <div class="card">
+                        <h4>3 Weeks Contract</h4>
+
+                        <text class="price">$2500</text>
+
+                        <h5>Min Deposit $2500</h5>
+
+                        <h5>Referral Bonus</h5>
+
+                        <h5>Full IT Support</h5>
+
+
+                        <a href={% url "deposit" %} class="purchase-btn">PURCHASE PLAN</a>
+                    </div>
+
+                    <div class="card">
+                        <h4>4 Weeks Contract</h4>
+
+                        <text class="price">$5500</text>
+
+                        <h5>Min Deposit $5500</h5>
+
+                        <h5>Referral Bonus</h5>
+
+                        <h5>Full IT Support</h5>
+
+
+                        <a href={% url "deposit" %} class="purchase-btn">PURCHASE PLAN</a>
+                    </div>
+
+                </div>
+                   
+
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>

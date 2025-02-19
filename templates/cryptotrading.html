@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static "css/index.css" %}>
+    <link rel="stylesheet" href={% static "css/about.css" %}>
+    <link rel="stylesheet" href={% static "fontawesome-free-6.4.0-web/css/all.css" %}>
+    <script src={% static "script.js" %}></script>
+    <title>UltraGreen - No.1 Bitcoin Trading Platform</title>
+    <link rel="shortcut icon" href={% static "images/download.png" %} />
+
+</head>
+<body id="body">
+    <nav id="top-nav">
+        <div id="nav-con">
+            <div>
+                <i class="fa-solid nav-icon fa-bars" onclick="OpenNav()" id="nav-ctrl"></i>&nbsp;&nbsp;&nbsp;&nbsp;<text id="logo">UltraGreen</text>
+            </div>
+
+            <div id="nav-links">
+                <a href={% url "home" %} class="nav-links">HOME</a>
+                <a href={% url "faq" %} class="nav-links">FAQ</a>
+                <a href={% url "about" %} class="nav-links">ABOUT US</a>
+                <a href="#" class="nav-links">CONTACT</a>
+                <i id="sun" onclick="LightMode()" class="fa-solid nav-icon fa-sun"></i>
+                <i id="moon" onclick="DarkMode()" class="fa-solid nav-icon fa-moon"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div id="main">
+        <div id="side-nav">
+            <div id="side-nav-top">
+                <img src={% static "images/download.png" %}>
+            </div>
+            <a href={% url "home" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-house"></i>&nbsp;&nbsp;Home</a>
+            <a href={% url "login" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-user"></i>&nbsp;&nbsp;Sign In</a>
+            <a href={% url "signup" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-user-plus"></i>&nbsp;&nbsp;Sign Up</a>
+            <a href="#" class="side-nav-link"><i class="fa-solid side-nav-icon fa-envelope"></i>&nbsp;&nbsp;Contact Us</a>
+            <a href={% url "cookies" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-unlock"></i>&nbsp;&nbsp;Cookie Policy</a>
+            <a href={% url "privacy" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-unlock"></i>&nbsp;&nbsp;Privacy Policy</a>
+            <a href="#" class="side-nav-link"><i class="fa-solid side-nav-icon fa-server"></i>&nbsp;&nbsp;Crypto Mining</a>
+            <a href="#" class="side-nav-link"><i class="fa-solid side-nav-icon fa-copyright"></i>&nbsp;&nbsp;Bitcoin Mining</a>
+            <a href="#" class="side-nav-link"><i class="fa-solid side-nav-icon fa-copyright"></i>&nbsp;&nbsp;Dogecoin Mining</a>
+            <a href={% url "copytrading" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-copy"></i>&nbsp;&nbsp;Copy Trading</a>
+            <a href={% url "cryptotrading" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-copyright"></i>&nbsp;&nbsp;Crypto Trading</a>
+            <a href={% url "terms" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-folder"></i>&nbsp;&nbsp;Terms Of Service</a>
+            <a href={% url "forextrading" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-calendar"></i>&nbsp;&nbsp;Forex Trading</a>
+            <!--a href= class="side-nav-link"><i class="fa-solid side-nav-icon fa-square-poll-vertical"></i>&nbsp;&nbsp;Stocks Trading</a>
+            <a href="#" class="side-nav-link"><i class="fa-solid side-nav-icon fa-circle-dollar-to-slot"></i>&nbsp;&nbsp;Options Trading</a>
+            <a href="#" class="side-nav-link"><i class="fa-solid side-nav-icon fa-user-group"></i>&nbsp;&nbsp;What is Leverage</a>
+            <a href="#" class="side-nav-link"><i class="fa-solid side-nav-icon fa-user-group"></i>&nbsp;&nbsp;Responsible Trading</a>
+            <a href="#" class="side-nav-link"><i class="fa-solid side-nav-icon fa-folder"></i>&nbsp;&nbsp;General Risk Disclosure</a-->
+            <a href={% url "about" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-user-group"></i>&nbsp;&nbsp;About Us</a>
+        </div>
+
+        <div id="main2" onclick="CloseNav()">
+            <section id="about">
+
+                <div id="about-con">
+                    <h1 id="title">Crypto Trading</h1>
+
+                    <p class="about-article">UltraGreen is excited to announce the launch of our new cryptocurrency trading platform. Now you can start trading Bitcoin, Ethereum and many more cryptocurrencies quickly, easily and safely from wherever you are — in just seconds. You get great margin trading leverage and short sell options with fast deposits and withdrawals. Our support team is available 24/7/365 to help get you trading on our CySEC-regulated platform with a trading volume of US $11 billion monthly.</p>
+
+                    <p class="about-article"><b>What is a crypto currency</b><br>
+                        A cryptocurrency like bitcoin is a virtual currency traded peer-to-peer on a blockchain, independent of centralized authorities like banks and governments. Cryptocurrencies are entirely virtual, so they are not backed by physical commodities and have no intrinsic value.
+                        </p>
+
+                    <p class="about-article"><b>How Do Cryptocurrencies Work?</b><br>
+                        Primarily, cryptocurrencies rely on blockchain technology to complete a transaction via an intricate P2P network. Once a transfer request is entered into the network, it is validated by the network and added to a pool of other transactions to create a block of data for the ledger, which is then entered into the existing blockchain. Once the block is successfully added to the chain, the transaction is approved and completed.</p>
+
+                    <p class="about-article"><b>Are There Investment Opportunities with Cryptocurrencies?</b><br>
+                        Absolutely. Cryptocurrencies have become established investment commodities among major financial institutions and have even been adopted by countries such as Australia and Japan. As with any investment though, there are risks linked to market movements, high volatility and economics.</p>
+
+                    
+
+            </section>
+
+            
+
+
+        </div>
+
+
+    </div>
+
+    <footer>
+        <div id="footer-con">
+            <div id="footer-sum">
+                <h2>UltraGreen</h2>
+                <p class="article">With no commissions and a simple user interface, UltraGreen is the most reliable way to trade for Cryptocurrency.</p>
+
+            </div>
+
+
+            <div id="footer-links">
+                <div class="col">
+                    <h3>Explore</h3>
+                    <a href={% url "faq" %} class="footer-links">FAQ</a>
+                    <a href={% url "about" %} class="footer-links">About</a>
+                    <a href="#" class="footer-links">Contact</a>
+                </div>
+
+                <div class="col">
+                    <h3>Services</h3>
+                    <a href={% url "copytrading" %} class="footer-links">Copy Trading</a>
+                    <a href={% url "forextrading" %} class="footer-links">Forex Trading</a>
+                    <a href={% url "cryptotrading" %} class="footer-links">Crypto Trading</a>
+                </div>
+
+                <div class="col">
+                    <h3>Resource</h3>
+                    <a href={% url "cookies" %} class="footer-links">Cookie Policy</a>
+                    <a href={% url "privacy" %} class="footer-links">Privacy Policy</a>
+                    <a href="terms" class="footer-links">Terms Of Service</a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!-- Smartsupp Live Chat script -->
+    <script type="text/javascript">
+        var _smartsupp = _smartsupp || {};
+        _smartsupp.key = 'f8205a7bc216151696f8f865e64f5a67301d5c23';
+        _smartsupp.style = 'default'; // or 'custom'
+        _smartsupp.offsetY = 45;
+        window.smartsupp||(function(d) {
+          var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+          s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+          c.type='text/javascript';c.charset='utf-8';c.async=true;
+          c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+        })(document);
+        </script>
+    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+</body>
+</html>

@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/traders.css' %}">
+    <link rel="stylesheet" href="{% static 'css/market.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'fontawesome-free-6.4.0-web/css/all.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js">
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js">
+    <script src={% static "nav.js" %}></script>
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+  
+    <title>UltraGreen</title>
+</head>
+<body>
+    {% include "top_nav.html" %}
+
+    <div id="main">
+        {% include "sidenav.html" %}
+
+        <div id="main2" onclick="CloseNav()">
+            <div id="main3" style="overflow-x:hidden">
+
+                <div id="markets" >
+                    {% for obj in mylist %}
+                    
+                    <div class="market">
+                        <div class="market-con">
+                            <a href={% url "traderoom" obj.pk %} style="text-decoration:none;color:white">
+                            <div class="market-info">
+                                <div class="market-img">
+                                    <img src="{{obj.image.url}}"/>
+                                </div>
+
+                                <div class="market-bio">
+                                    <text class="market-name">{{obj.name}}</text>
+                                    <text class="market-abb">{{obj.symbol}}</text>
+                                </div>
+                            </div>
+                            </a>
+                            <div class="market-stat">
+                                <text class="num">{{obj.value}}</text>
+                                {% if obj.name in list %}
+                                    <button id="like-{{obj.pk}}" style="display:none;border-style:none;background-color:transparent"><i class="fa-regular fa-star"></i></button>
+                                    <button id="close-{{obj.pk}}" style="border-style:none;background-color:transparent"><i class="fa-solid fa-star" ></i></button>
+
+                                {% else %}
+                                    <button id="like-{{obj.pk}}" style="border-style:none;background-color:transparent"><i class="fa-regular fa-star" ></i></button>
+                                    <button id="close-{{obj.pk}}" style="display:none;border-style:none;background-color:transparent"><i class="fa-solid fa-star" ></i></button>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        // Assuming you're using jQuery for simplicity
+                        $(document).ready(function() {
+                          $('#like-{{obj.pk}}').click(function() {
+                            var postId = $(this).data('post-id');
+                            var button =$(this);
+                            $.ajax({
+                              type: 'POST',
+                              url: {% url "like_post"  %},
+                              data: {'name':'{{obj.name}}'},
+                              success: function(response) {
+                                button.hide();
+                                $('#cancel{{obj.pk}}').show();
+                                $('#close-{{obj.pk}}').show();
+                              }
+                            });
+                          });
+                        });
+                      </script>
+                      <script>
+                        // Assuming you're using jQuery for simplicity
+                        $(document).ready(function() {
+                          $('#close-{{obj.pk}}').click(function() {
+                            var postId = $(this).data('post-id');
+                            var button =$(this);
+                            $.ajax({
+                              type: 'POST',
+                              url: {% url "like_post"  %},
+                              data: {'name':'{{obj.name}}'},
+                              success: function(response) {
+                                button.hide();
+                                $('#load{{obj.pk}}').hide();
+                                $('#like-{{obj.pk}}').show();
+                                $('#cancel{{obj.pk}}').hide();
+                              }
+                            });
+                          });
+                        });
+                      </script>
+                    {% endfor %}
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+    <!-- Smartsupp Live Chat script -->
+    <script type="text/javascript">
+      var _smartsupp = _smartsupp || {};
+      _smartsupp.key = 'f8205a7bc216151696f8f865e64f5a67301d5c23';
+      _smartsupp.style = 'default'; // or 'custom'
+      _smartsupp.offsetY = 45;
+      window.smartsupp||(function(d) {
+        var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+        s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+        c.type='text/javascript';c.charset='utf-8';c.async=true;
+        c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+      })(document);
+      </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/fund.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-6.4.0-web/css/all.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <title>UltraGreen</title>
+</head>
+<body>
+    {% include "top_nav.html" %}
+
+    <div id="main">
+        {% include "sidenav.html" %}
+
+        <div id="main2" onclick="CloseNav()">
+            <div id="main3">
+                <h1>Fund Account</h1>
+
+                <a href={% url "upgrade" %} class="link">VIEW PRICING</a>
+                <a href={% url "buycoin" %} class="link">BUY CRYPTO</a>
+
+                <form  action={% url 'fund' %} method=POST  onsubmit="openLoader()">{%csrf_token%}
+                    <div id="form-con">
+                        <div class="input-con">
+                            <label>Fund</label>    
+                            {{form.fund}}                  
+                        </div>
+
+                        <div class="input-con">
+                            <label>Payment Method</label>    
+                            {{form.pay_in}}                       
+                        </div>
+
+                        <div class="input-con">
+                            <label>Amount</label>    
+                            {{form.ammount}}   
+                            <p style="color:white">{{form.ammount.errors}}</p>
+                        </div>
+
+                        <input type="submit" value="Proceed" id="submit">
+
+                                                
+                    </div>
+
+
+                </form>
+
+    
+            </div>
+        </div>
+
+    </div>
+    <!-- Smartsupp Live Chat script -->
+    <script type="text/javascript">
+        var _smartsupp = _smartsupp || {};
+        _smartsupp.key = 'f8205a7bc216151696f8f865e64f5a67301d5c23';
+        _smartsupp.style = 'default'; // or 'custom'
+        _smartsupp.offsetY = 45;
+        window.smartsupp||(function(d) {
+          var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+          s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+          c.type='text/javascript';c.charset='utf-8';c.async=true;
+          c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+        })(document);
+        </script>
+    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+</body>
+</html>

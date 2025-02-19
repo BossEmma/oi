@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-6.4.0-web/css/all.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+    <title>UltraGreen</title>
+</head>
+<body>
+    {% include "top_nav.html" %}
+
+    <div id="main">
+        {% include "sidenav.html" %}
+
+        <div id="main2" onclick="CloseNav()">
+            <div id="main3">
+                <div id="profile">
+                    <div id="profile-con">
+                        <form id="identity-form" enctype="multipart/form-data" style="display:flex;" action={%url 'image'%} method="POST" >{% csrf_token %}
+
+                            <div id="cam-con">
+                                {% if pic is not None %}
+                                <img src="{{pic.image.url}}" class="fa-solid cam fa-camera" style="width:100px;height:100px"></img>
+                                {% else %}
+                                <i  class="fa-solid cam fa-camera"></i>
+                                {% endif %}
+                            </div>    
+                    
+                            <div id="password-form-con">
+                                <div class="input">
+                                    {{form}}
+                                </div>
+
+                                <button type="submit" value="Update" id="submit" style="border-radius:40px">Update</button>
+                            </div>
+                        </form>
+
+                        
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

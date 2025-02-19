@@ -1,0 +1,22 @@
+<div id="side-nav">
+    <div id="side-nav-con">
+        <div id="img-con">
+            {% if pic is not None %}
+            <img src="{{pic.image.url}}" class="fa-solid cam fa-camera" style="width:100px;height:100px"></img>
+            {% else %}
+            <i  class="fa-solid cam fa-camera"></i>
+            {% endif %}
+        </div>
+        
+        <text id="user_name">{{request.user}}</text>
+    </div>
+    <a href={% url "dashboard" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-house"></i>&nbsp;&nbsp;Home</a>
+    <a href={% url "account" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-user"></i>&nbsp;&nbsp;Account</a>
+    <a href={% url "market" "CRYPTO" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-shop"></i>&nbsp;&nbsp;Market</a>
+    <a href={% url "deposit" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-money-bill-transfer"></i>&nbsp;&nbsp;Deposits</a>
+    <a href={% url "whistory" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-hand-holding-dollar"></i>&nbsp;&nbsp;Withdrawal</a>
+    <a href={% url "buycoin" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-coins"></i>&nbsp;&nbsp;Buy Coin</a>
+    <a href={% url "upgrade" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-arrow-up-from-bracket"></i>&nbsp;&nbsp;Upgrade</a>
+    <a href={% url "referrals" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-users"></i>&nbsp;&nbsp;Referral</a>
+    <a href={% url "logout" %} class="side-nav-link"><i class="fa-solid side-nav-icon fa-power-off"></i>&nbsp;&nbsp;Sign out</a>
+</div>

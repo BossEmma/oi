@@ -1,0 +1,163 @@
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-6.4.0-web/css/all.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <title>UltraGreen</title>
+</head>
+<body>
+    {% include "top_nav.html" %}
+
+    <div id="main">
+        {% include "sidenav.html" %}
+
+        <div id="main2" onclick="CloseNav()">
+            <div id="main3">
+                <div id="options">
+                    <div class="con">
+                        <div id="profile">
+                            <div id="">
+                                {% if pic is not None %}
+                                <img src="{{pic.image.url}}" class="" style="width:150px;height:150px;border-radius:70px"></img>
+                                {% else %}
+                                <i  class="fa-solid cam fa-camera"></i>
+                                {% endif %}
+                            </div>  
+                            <h1 id="user-name">{{request.user}}</h1>
+                        </div>
+                        <div class="opt">
+                            <div class="opt-con">
+                                <div class="icon-con" style="background-color: rgb(54, 54, 252);">
+                                    <i class="fa-solid icon fa-piggy-bank"></i>
+                                </div>
+
+                                <text class="opt-text"><a href={% url "deposit" %} style="text-decoration:none;color:white">
+                                    Deposits</text></a>
+                            </div>
+                        </div>
+
+                        <div class="opt">
+                            <div class="opt-con">
+                                <div class="icon-con" style="background-color: rgb(205, 20, 205);">
+                                    <i class="fa-solid icon fa-money-bills"></i>
+                                </div>
+
+                                <text class="opt-text"><a href={% url "withdraw" %} style="text-decoration:none;color:white">
+                                    Withdrawals</text></a>
+                            </div>
+                        </div>
+
+                        <div class="opt">
+                            <div class="opt-con">
+                                <div class="icon-con" style="background-color: rgb(224, 44, 44);">
+                                    <i class="fa-solid icon fa-users"></i>
+                                </div>
+
+                                <text class="opt-text"><a href={% url "refferal" %} style="text-decoration:none;color:white">
+                                    Referrals</text></a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="con">
+                        <div class="opt">
+                            <div class="opt-con">
+                                <div class="icon-con" style="background-color: rgb(218, 147, 15);">
+                                    <i class="fa-solid icon fa-star"></i>
+                                </div>
+
+                                <text><a href={% url "watchlist" %} style="text-decoration:none;color:white">
+                                    Watchlist</text></a>
+                            </div>
+                        </div>
+
+                        <div class="opt">
+                            <div class="opt-con">
+                                <div class="icon-con" style="background-color: rgb(20, 145, 20);">
+                                    <i class="fa-solid icon fa-envelope"></i>
+                                </div>
+
+                                <text class="opt-text"><a href={% url "email" %} style="text-decoration:none;color:white">
+                                    Update Email
+                                </text></a>
+                            </div>
+                        </div>
+
+                        <div class="opt">
+                            <div class="opt-con">
+                                <div class="icon-con" style="background-color: rgb(205, 20, 205);;">
+                                    <i class="fa-solid icon fa-user"></i>
+                                </div>
+
+                                <text class="opt-text"><a href={% url "image" %} style="text-decoration:none;color:white">
+                                    Update Photo</text></a>
+                            </div>
+                        </div>
+
+                        <div class="opt">
+                            <div class="opt-con">
+                                <div class="icon-con" style="background-color: rgb(54, 54, 252);">
+                                    <i class="fa-solid icon fa-lock"></i>
+                                </div>
+
+                                <text class="opt-text"><a href={% url "password" %} style="text-decoration:none;color:white">
+                                    Update Password</text></a>
+                            </div>
+                        </div>
+
+                        <div class="opt">
+                            <div class="opt-con">
+                                <div class="icon-con" style="background-color: rgb(205, 20, 205);">
+                                    <i class="fa-solid icon fa-gear"></i>
+                                </div>
+
+                                <text class="opt-text"><a href={% url "settings" %} style="text-decoration:none;color:white">
+                                    Account Settings</text></a>
+                            </div>
+                        </div>
+
+                        <div class="opt">
+                            <div class="opt-con">
+                                <div class="icon-con" style="background-color: rgb(54, 54, 252);">
+                                    <i class="fa-solid icon fa-right-from-bracket"></i>
+                                </div>
+
+                                <text class="opt-text"><a href={% url "logout" %} style="text-decoration:none;color:white">
+                                    Logout</text></a>
+                            </div>
+                        </div>
+
+                        
+
+                    </div>                    
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    {% include "bottom_nav.html" %}
+    <!-- Smartsupp Live Chat script -->
+    <script type="text/javascript">
+        var _smartsupp = _smartsupp || {};
+        _smartsupp.key = 'f8205a7bc216151696f8f865e64f5a67301d5c23';
+        _smartsupp.style = 'default'; // or 'custom'
+        _smartsupp.offsetY = 45;
+        window.smartsupp||(function(d) {
+          var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+          s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+          c.type='text/javascript';c.charset='utf-8';c.async=true;
+          c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+        })(document);
+        </script>
+    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+</body>
+</html>

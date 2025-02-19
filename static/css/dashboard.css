@@ -1,0 +1,394 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0%;
+    font-family: sans-serif;
+    background-color: #151e1c;
+}
+
+#top-nav{
+    position: fixed;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #152b25;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+#top-nav-con{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    color: white;
+}
+
+#nav-col1{
+    width: 109px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#nav-col2{
+    width: 9%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+#main{
+    padding-top: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#side-nav{
+    display: flex;
+    flex-direction: column;
+    background-color: #03523d;
+    height: 100%;
+    width: 0%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    line-height: 1.5;
+    z-index: 2;
+    
+}
+
+#side-nav-con{
+    background-color: #0b8766;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    gap: 15px;
+    color: white;
+}
+
+#img-con{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 50%;
+    border-style: solid;
+    background-color: unset;
+    width: 80px;
+    height: 80px;
+    color: white;
+    overflow: hidden;
+}
+
+#user-img{
+    font-size: 70px;
+    margin-top: 10px;
+    color: white;
+}
+
+
+
+.side-nav-link{
+    width: 100%;
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-decoration: none;
+}
+
+.side-nav-icon{
+    padding-left: 30px;
+    font-size: 14px;
+}
+
+#main2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 100px;
+}
+
+#main3{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    overflow-x: hidden;
+}
+
+#panel{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+#card{
+    border-radius: 10px;
+    background-color: aqua;
+    color: white;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    background-image: url('../images/card_background.jpg');
+}
+
+#bal{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#balance{
+    font-size: 25px;
+}
+
+#bal-text{
+    font-size: 14px;
+}
+
+#signal{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#line{
+    padding: 3px;
+    background-color: white;
+    width: 95%;
+    border-radius: 10px;
+}
+
+#btns{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.panel-btn{
+    text-align: center;
+    text-decoration: none;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-style: solid;
+    border-width: 1px;
+    background-color: unset;
+    border-radius: 10px;
+    width: 49%;
+}
+
+#trade{
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    width: 68%;
+}
+
+#trade-head{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.trade-header{
+    text-align: center;
+    width: 50%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transition: 0.5s;
+    color: white;
+}
+
+#closed-trade-head{
+    background-color: #152b25;
+    border-bottom-style: solid;
+    color: white;
+}
+
+#trade-body{
+    width: 100%;
+}
+
+.trade-con{
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    background-color: #065641;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+
+#open-trade-body{
+    display: none;
+}
+
+.trade-label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 98%;
+    background-color: #0b8766;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+}
+
+.trade-label-con{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+}
+
+.trade-label-con1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    gap: 10px;
+}
+
+.history-date{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.month{
+    font-size: 20px;
+}
+
+.date{
+    font-size: 25px;
+}
+
+.img-con{
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100px;
+
+}
+
+.img-con img{
+    width: 100%;
+}
+
+.trading-view{
+    width: 100%;
+}
+
+
+
+
+#footer-nav{
+    background-color: #054634;
+    color: white;
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+#footer-nav-con{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 45%;
+}
+
+.footer-link{
+    color: white;
+    padding-top: 5px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    
+}
+
+.footer-icon{
+    font-size: 23px;
+}
+
+@media screen and (max-width: 1269px) {
+    #nav-col1{
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #main3{
+        flex-direction: column;
+        align-items: center;
+        width: 95%;
+    }
+
+    #panel{
+        width: 100%;
+    }
+
+    #name{
+        display: none;
+    }
+
+    #trade{
+        width: 100%;
+    }
+
+    #view-2{
+        display: none;
+    }
+
+    #footer-nav-con{
+        width: 90%;
+    }
+
+    .footer-link{
+        font-size: 14px;
+    }
+
+    .footer-link-text{
+        display: none;
+    }
+    
+}

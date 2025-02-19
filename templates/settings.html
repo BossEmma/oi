@@ -1,0 +1,76 @@
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-6.4.0-web/css/all.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <title>UltraGreen</title>
+</head>
+<body>
+    {% include "top_nav.html" %}
+
+    <div id="main">
+        {% include "sidenav.html" %}
+
+        <div id="main2" onclick="CloseNav()">
+            <div id="main3">
+                <div id="options" style="display: flex; flex-direction: column; align-items: center;">
+                    <div class="con">
+                        <div class="opt">
+                            <div class="opt-con">
+                                <div class="icon-con" style="background-color: rgb(54, 54, 252);">
+                                    <i class="fa-solid icon fa-user"></i>
+                                </div>
+
+                                <text class="opt-text"><a href={% url "profile" %} style="text-decoration:none;color:white">
+                                    My Profile</text></a>
+                            </div>
+                        </div>
+
+                        <div class="opt">
+                            <div class="opt-con">
+                                <div class="icon-con" style="background-color: rgb(205, 20, 205);">
+                                    <i class="fa-solid icon fa-bell"></i>
+                                </div>
+
+                                <text class="opt-text"><a href={% url "notify" %} style="text-decoration:none;color:white">
+                                    Notifications</text></a>
+                            </div>
+                        </div>
+
+                        <div class="opt">
+                            <div class="opt-con">
+                                <div class="icon-con" style="background-color: rgb(224, 44, 44);">
+                                    <i class="fa-solid icon fa-home"></i>
+                                </div>
+
+                                <text class="opt-text"><a href={% url "address" %} style="text-decoration:none;color:white">
+                                    Update Address</text></a>
+                            </div>
+                        </div>
+
+                        <!--div class="opt">
+                            <div class="opt-con">
+                                <div class="icon-con" style="background-color: rgb(224, 44, 44);">
+                                    <i class="fa-solid icon fa-user-shield"></i>
+                                </div>
+
+                                <text class="opt-text">Account Verification</text>
+                            </div>
+                        </div-->
+
+                    </div>         
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
