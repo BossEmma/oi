@@ -5,7 +5,7 @@
 body{
     margin: 0%;
     font-family: sans-serif;
-    background-color: #152b25;
+    background-color: #000000;
     color: white;
 }
 
@@ -23,7 +23,7 @@ body{
   
 
 nav{
-    background-color: #026d50;
+    background-color: #0b1118;
     padding-top: 15px;
     padding-bottom: 15px;
     display: flex;
@@ -86,7 +86,7 @@ nav{
     width: 0%;
     height: 100%;
     position: fixed;
-    background-color: #035f46;
+    background-color: #0b1118;
     color: white;
     display: flex;
     flex-direction: column;
@@ -100,7 +100,7 @@ nav{
 }
 
 #side-nav-top{
-    background-color: #03b686;
+    background-color: #101821;
 }
 
 #side-nav-top img{

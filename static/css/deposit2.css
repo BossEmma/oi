@@ -4,7 +4,7 @@ body{
     align-items: center;
     margin: 0%;
     font-family: sans-serif;
-    background-color: #151e1c;
+    background-color: #000000;
     color: white;
 }
 
@@ -37,7 +37,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #135043;
+    background-color: #0b1118;
     padding: 20px;
     gap: 10px;
 }
@@ -55,7 +55,7 @@ body{
     border-style: none;
     border-radius: 5px;
     width: 50%;
-    background-color: #118c71;
+    background-color: #0b1118;
     color: white;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -77,8 +77,8 @@ body{
 }
 
 #upload{
-    background-color: #118c71;
-    border-color: #118c71;
+    background-color: #0b1118;
+    border-color: #1d2b3c;
 }
 
 @media screen and (max-width: 700px) {

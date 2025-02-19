@@ -9,7 +9,7 @@
 
 .card{
     border-radius: 10px;
-    background-color: #0e6d54;
+    background-color: #0b1118;
     color: white;
     width: 100%;
     padding-top: 30px;
@@ -29,7 +29,7 @@
     width: 100%;
     padding-top: 5px;
     padding-bottom: 5px;
-    background-color: red;
+    background-color: rgb(106, 0, 255);
     text-decoration: none;
     text-align: center;
     color: white;
@@ -41,7 +41,7 @@
     padding-top: 5px;
     padding-bottom: 5px;
     width: 90%;
-    background-color: #0b8766;
+    background-color: #181c34;
     text-align: center;
 }
 

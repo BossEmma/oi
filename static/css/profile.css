@@ -4,7 +4,7 @@ body{
     align-items: center;
     margin: 0%;
     font-family: sans-serif;
-    background-color: #151e1c;
+    background-color: #000000;
     color: white;
 }
 
@@ -37,7 +37,7 @@ body{
     width: 50%;
     flex-direction: column;
     align-items: center;
-    background-color: #64bca9;
+    background-color: #0b1118;
     border-radius: 5px;
     overflow: hidden;
 
@@ -53,7 +53,7 @@ body{
 
 #cam-con{
     border-radius: 50%;
-    background-color: #0f4035;
+    background-color: #0b1118;
     color: white;
     width: 40%;
     text-align: center;
@@ -76,11 +76,11 @@ body{
 }
 
 .dark{
-    background-color: #0f4035;
+    background-color: #0b1118;
 }
 
 .light{
-    background-color: #64bca9;
+    background-color: #121a23;
 }
 
 /* The switch - the box around the slider */
@@ -152,7 +152,7 @@ input:checked + .slider:before {
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: #0f4035;
+    background-color: #0b1118;
     transition: 0.3s;
 }
 
@@ -162,7 +162,7 @@ input:checked + .slider:before {
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: #0f4035;
+    background-color: #0b1118;
     transition: 0.3s;
 }
 
@@ -172,7 +172,7 @@ input:checked + .slider:before {
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: #0f4035;
+    background-color: #0b1118;
     transition: 0.3s;
 }
 
@@ -183,7 +183,7 @@ input:checked + .slider:before {
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: #0f4035;
+    background-color: #0b1118;
     transition: 0.3s;
 }
 
@@ -218,7 +218,7 @@ input:checked + .slider:before {
 }
 
 #submit{
-    background-color: #038e72;
+    background-color: #2d104a;
     color: white;
     width: 100%;
     padding-top: 10px;

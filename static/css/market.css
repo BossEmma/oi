@@ -3,7 +3,7 @@ select{
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 5px;
-    background-color:  #039f7d;
+    background-color: #0b1118;
     color: white;
     border-style: none;
     text-align: center;
@@ -22,7 +22,7 @@ select{
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 8px;
-    background-color: #058166;;
+    background-color: #0b1118;
     display: flex;
     flex-direction: column;
     align-items: center;

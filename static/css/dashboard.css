@@ -4,7 +4,7 @@ body{
     align-items: center;
     margin: 0%;
     font-family: sans-serif;
-    background-color: #151e1c;
+    background-color: #000000;
 }
 
 #top-nav{
@@ -12,7 +12,7 @@ body{
     width: 100%;
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: #152b25;
+    background-color: #0b1118;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,7 +57,7 @@ body{
 #side-nav{
     display: flex;
     flex-direction: column;
-    background-color: #03523d;
+    background-color: #0b1118;
     height: 100%;
     width: 0%;
     position: fixed;
@@ -71,7 +71,7 @@ body{
 }
 
 #side-nav-con{
-    background-color: #0b8766;
+    background-color: #101821;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -142,7 +142,6 @@ body{
 
 #card{
     border-radius: 10px;
-    background-color: aqua;
     color: white;
     width: 100%;
     padding-top: 30px;
@@ -151,7 +150,7 @@ body{
     flex-direction: column;
     align-items: center;
     gap: 40px;
-    background-image: url('../images/card_background.jpg');
+    background-image: url('https://blockwealthpartners.com/assets/images/site/Background1.png');
 }
 
 #bal{
@@ -229,7 +228,7 @@ body{
 }
 
 #closed-trade-head{
-    background-color: #152b25;
+    background-color: #0b1118;
     border-bottom-style: solid;
     color: white;
 }
@@ -242,7 +241,7 @@ body{
     border-radius: 10px;
     width: 100%;
     text-align: center;
-    background-color: #065641;
+    background-color: #0b1118;
     padding-top: 10px;
     display: flex;
     flex-direction: column;
@@ -260,7 +259,7 @@ body{
     flex-direction: column;
     align-items: center;
     width: 98%;
-    background-color: #0b8766;
+    background-color: #0b1118;
     color: white;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -317,7 +316,7 @@ body{
 
 
 #footer-nav{
-    background-color: #054634;
+    background-color: #0b1118;
     color: white;
     bottom: 0;
     width: 100%;

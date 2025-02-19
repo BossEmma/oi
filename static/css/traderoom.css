@@ -4,7 +4,7 @@ body{
     flex-direction: column;
     align-items: center;
     font-family: sans-serif;
-    background-color: #151e1c;
+    background-color: #000000;
 }
 
 #main{
@@ -64,7 +64,7 @@ select{
     padding-top: 10px;
     padding-bottom: 10px;
     width: 32%;
-    background-color: #096f5a;
+    background-color: #0b1118;
     color: white;
     border-style: none;
     border-radius: 5px;
@@ -75,7 +75,7 @@ select{
     padding-bottom: 15px;
     border-radius: 5px;
     width: 100%;
-    background-color: #096f5a;
+    background-color: #0b1118;
     color: white;
     margin-top: 10px;
 }
@@ -233,7 +233,7 @@ label{
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #096f5a;
+        background-color: #0b1118;
         padding-top: 10px;
         padding-bottom: 10px;
         bottom: 0;

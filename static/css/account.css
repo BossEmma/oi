@@ -21,7 +21,7 @@
 
 #cam-con{
     border-radius: 50%;
-    background-color: #0b5747;
+    background-color: #0b1118;
     color: white;
     width: 50%;
     text-align: center;
@@ -54,7 +54,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    background-color: #0b5747;
+    background-color: #0b1118;
     color: white;
     padding-top: 10px;
     padding-bottom: 10px;

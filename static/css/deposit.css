@@ -6,7 +6,7 @@ label{
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    background-color: #058166;
+    background-color: #0b1118;
     color: white;
     margin-bottom: 20px;
     font-size: 13px;
@@ -24,7 +24,7 @@ label{
 .deposit-history{
     width: 100%;
     border-radius: 8px;
-    background-color: #058166;
+    background-color: #0b1118;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -84,6 +84,6 @@ label{
     right: 0;
     margin-right: 30px;
     margin-bottom: 40px;
-    color: #08c39b;
+    color: #0b1118;
 }
 
