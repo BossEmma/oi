@@ -83,18 +83,6 @@ WSGI_APPLICATION = 'Ultragreen.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-"""DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.postgresql',
-         'NAME':'ultragreendb',
-         'USER':'lucifer',
-         'PASSWORD':'death2025',
-         'HOST':"ultragreendb.c3a2m6makenf.eu-north-1.rds.amazonaws.com",
-         'PORT':'5432',
-         'CONN_MAX_AGE': 500,
-     }
-}
-"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -148,15 +136,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #MEDIA_ROOT = os.path.join(BASE_DIR,"media")
 #MEDIA_URL = '/media/'
 #DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-# Amazon S3 settings.
-#AWS_ACCESS_KEY_ID = 'AKIAXYKJSCA3DIUCANNB'
-#AWS_SECRET_ACCESS_KEY = "cHn6did5oh/N+G/MQUOCU62WsMa7ykmtX7zIA7rQ"
-#AWS_STORAGE_BUCKET_NAME = 'ultragrenn'
-#AWS_S3_REGION_NAME = 'eu-north-1'  # e.g., us-west-2
-
-# Optional: Set the URL for Amazon S3.
-#AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 
 # Default primary key field type
