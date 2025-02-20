@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"  />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>UltraGreen - No.1 Forex Trading Platform</title>
     <link rel="shortcut icon" href="https://blockwealthpartners.com/assets/images/site/logo.png" />
 </head>
@@ -23,9 +24,8 @@
 
             <div id="nav-links">
                 <a href={% url "home" %} class="nav-links">HOME</a>
-                <a href={% url "faq" %} class="nav-links">FAQ</a>
-                <a href={% url "about" %} class="nav-links">ABOUT US</a>
-                <a href="#" class="nav-links">CONTACT</a>
+                <a href={% url "login" %} class="nav-links">Login</a>
+                <a href={% url "signup" %} class="nav-links">Signup</a>
                 <i id="sun" onclick="LightMode()" class="fa-solid nav-icon fa-sun"></i>
                 <i id="moon" onclick="DarkMode()" class="fa-solid nav-icon fa-moon"></i>
                 <a class="notranslate">EN</a>
@@ -75,7 +75,7 @@
                     <h1>Experience the Difference</h1>
                     <p>Blockwealthpartners is the world’s leading trading and mining platform that allows people 
                         to grow their portfolio and financial experience.</p>
-                    <a href="#" class="hero-btn">Start Investing</a>
+                    <a href="{% url "signup" %}"  class="mt-5 pl-6 pr-6 pt-3 pb-3 rounded-lg bg-purple-600">Start Investing</a>
                 </div>
             </section>
             
@@ -123,9 +123,9 @@
             </div>
             <!-- TradingView Widget END -->
 
-            <section data-aos="fade-up" class="section section1">
+            <section data-aos="fade-up" id="about" class="section section1">
                 <text class="mid-text">Why UltraGreen ?</text>
-                <p class="article">The Blockchain is a decentralized, digital ledger of transactions that are recorded confirmed</p>
+                <p class="article p-2"> The Blockchain is a decentralized, digital ledger of transactions that are recorded confirmed</p>
 
                 <div id="feats">
                     <div class="feat">
@@ -170,6 +170,89 @@
                             <h2>Worldwide Coverage</h2>
                             <p class="feat-article article">Millions of traders from all over the world trust UltraGreen. The platform interface is localized into 12 languages.</p>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <div class="text-center text-white p-3 w-3/4 mx-auto">
+                <!-- Flags Section -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
+                    <div class="w-3/4 mx-auto aspect-square bg-red-500 flex items-center justify-center rounded-lg">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="USA" class="w-full h-full rounded-md object-cover">
+                    </div>
+                    <div class="w-3/4 mx-auto aspect-square bg-blue-500 flex items-center justify-center rounded-lg">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Flag_of_South_Africa.svg" alt="South Africa" class="w-full h-full rounded-md object-cover">
+                    </div>
+                    <div class="w-3/4 mx-auto aspect-square bg-blue-500 flex items-center justify-center rounded-lg">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg" alt="EU" class="w-full h-full rounded-md object-cover">
+                    </div>
+                    <div class="w-3/4 mx-auto aspect-square bg-red-500 flex items-center justify-center rounded-lg">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg" alt="Canada" class="w-full h-full rounded-md object-cover">
+                    </div>
+                </div>
+        
+                <!-- Title -->
+                <h2 class="text-xl font-bold">Forex, Crypto and Beyond</h2>
+                <p class="text-sm text-gray-400">Discover hundreds of assets across multiple categories</p>
+        
+                <!-- Crypto Section -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6">
+                    <div class="w-3/4 mx-auto aspect-square bg-orange-500 flex items-center justify-center rounded-lg">
+                        <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.svg?v=024" alt="Bitcoin" class="w-3/4 h-3/4 object-contain">
+                    </div>
+                    <div class="w-3/4 mx-auto aspect-square bg-blue-500 flex items-center justify-center rounded-lg">
+                        <img src="https://cryptologos.cc/logos/ethereum-eth-logo.svg?v=024" alt="Ethereum" class="w-3/4 h-3/4 object-contain">
+                    </div>
+                    <div class="w-3/4 mx-auto aspect-square bg-yellow-500 flex items-center justify-center rounded-lg">
+                        <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.svg?v=024" alt="Binance" class="w-3/4 h-3/4 object-contain">
+                    </div>
+                    <div class="w-3/4 mx-auto aspect-square bg-red-500 flex items-center justify-center rounded-lg">
+                        <img src="https://cryptologos.cc/logos/shiba-inu-shib-logo.svg?v=024" alt="Shiba Inu" class="w-3/4 h-3/4 object-contain">
+                    </div>
+                </div>
+            </div>
+
+
+            <section id='features' class="bg-black py-10 px-4">
+                <div class="w-full mx-auto text-center">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-white">
+                        <div data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out-sine" class=" rounded-lg p-6">
+                            <img src="https://blockwealthpartners.com/assets/images/site/ServiceVector3.png" class="mx-auto"/>
+                            <h3 class="text-xl font-semibold mb-1 mt-0">Daily Mining Outputs</h3>
+                            <p class="text-[14px] text-text_theme">Returns made from either trading or mining transactions will be added to your account daily and automatically.</p>
+                        </div>
+            
+                        <div data-aos="fade-up" data-aos-offset="200" data-aos-delay="100" data-aos-duration="1000" data-aos-easing="ease-in-out-sine" class=" rounded-lg p-6 ">
+                        <img src="https://blockwealthpartners.com/assets/images/site/ServiceVector1.png" class="mx-auto"/>
+                        <h3 class="text-xl font-semibold mb-1 mt-0">State of the Art Mining</h3>
+                        <p class="text-[14px] text-text_theme">Productivity is a top notch quality for any investment. So, for every trade action or blockchain mining algorithm that we offer, we’re providing some of the highest performing systems and softwares that exist</p>
+                        </div>
+            
+                        <div data-aos="fade-up" data-aos-offset="200" data-aos-delay="150" data-aos-duration="1000" data-aos-easing="ease-in-out-sine" class=" rounded-lg p-6 ">
+                        <img src="https://blockwealthpartners.com/assets/images/site/ServiceVector2.png" class="mx-auto"/>
+                        <h3 class="text-xl font-semibold mb-1 mt-0">Diverse Mining Portfolio</h3>
+                        <p class="text-[14px] text-text_theme">Choose from a wide range of target assets for trading and over 10 major mining algorithms that cut across 4 mineable cryptocurrencies.</p>
+                        </div>
+            
+                        <div data-aos="fade-up" data-aos-offset="200" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out-sine" class=" rounded-lg p-6 ">
+                        <img src="https://blockwealthpartners.com/assets/images/site/ServiceVector45.png" class="mx-auto"/>
+                        <h3 class="text-xl font-semibold mb-1 mt-0">Hardware is already running</h3>
+                        <p class="text-[14px] text-text_theme">Don’t wrestle with rig assembly and hot, noisy miners at home. We have the fastest bitcoin mining hardware running for you already.</p>
+                        </div>
+            
+                        <div data-aos="fade-up" data-aos-offset="200" data-aos-delay="250" data-aos-duration="1000" data-aos-easing="ease-in-out-sine" class=" rounded-lg p-6 ">
+                        <img src="https://blockwealthpartners.com/assets/images/site/ServiceVector55.png" class="mx-auto"/>
+                        <h3 class="text-xl font-semibold mb-1 mt-0">Intuitive Dashboard</h3>
+                        <p class="text-[14px] text-text_theme">All the financial instruments data and charts that you need, when you need them.</p>
+                        </div>
+            
+                        <div data-aos="fade-up" data-aos-offset="200" data-aos-delay="300" data-aos-duration="1000" data-aos-easing="ease-in-out-sine" class=" rounded-lg p-6 ">
+                        <img src="https://blockwealthpartners.com/assets/images/site/ServiceVector65.png" class="mx-auto"/>
+                        <h3 class="text-xl font-semibold mb-1 mt-0">Secure and Private</h3>
+                        <p class="text-[14px] text-text_theme">We value the privacy of our users, so we strive to keep collected user data to a minimum level.</p>
+                        </div>
+            
                     </div>
                 </div>
             </section>
@@ -413,7 +496,7 @@
 
     </div>
 
-    <footer>
+    <footer class="p-3">
         <div id="footer-con">
             <div id="footer-sum">
                 <h2>UltraGreen</h2>
@@ -447,6 +530,7 @@
             </div>
         </div>
     </footer>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();
